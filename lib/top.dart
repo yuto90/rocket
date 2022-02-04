@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jump/mainpage.dart';
+import 'package:rocket/mainpage.dart';
 
 class Top extends StatefulWidget {
   const Top({Key key}) : super(key: key);
