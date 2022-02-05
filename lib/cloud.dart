@@ -11,9 +11,10 @@ class Cloud extends StatelessWidget {
       width: widthSize,
       height: heightSize,
       decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.all(width: 4, color: Colors.blue[200]),
-          borderRadius: BorderRadius.circular(60)),
+        color: Colors.white,
+        border: Border.all(width: 4, color: Colors.blue[200]),
+        borderRadius: BorderRadius.circular(60),
+      ),
     );
   }
 }

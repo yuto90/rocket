@@ -4,7 +4,6 @@ import 'dart:async';
 import 'background.dart';
 import 'rocket.dart';
 import 'cloud.dart';
-import 'building.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -21,9 +20,6 @@ class _MainPage extends State<MainPage> {
   // 雲
   static double cloudOne = 3.5;
   double cloudOneDie = -0.65;
-  // 建物
-  static double buildingOne = -0.6;
-  double buildingOneDie = 0.19;
   // 背景
   double back = 1;
 
@@ -56,19 +52,10 @@ class _MainPage extends State<MainPage> {
 
         // 建物 --------------------------------------------------
         setState(() {
-          if (buildingOne < -3) {
-            buildingOne += 4.5;
-          } else {
-            buildingOne -= 0.1;
-          }
-        });
-
-        // 建物 --------------------------------------------------
-        setState(() {
-          if (back < -3) {
+          if (back < 3) {
             back += 4.5;
           } else {
-            back -= 0.01;
+            back += 0.01;
           }
         });
 
@@ -81,12 +68,6 @@ class _MainPage extends State<MainPage> {
 
         if (cloudOne <= 3 && cloudOne >= -3) {
           if (rocketYaxis < cloudOneDie) {
-            timer.cancel();
-            dialog();
-          }
-        }
-        if (buildingOne <= 0.5 && buildingOne >= -0.5) {
-          if (rocketYaxis > buildingOneDie) {
             timer.cancel();
             dialog();
           }
@@ -105,7 +86,6 @@ class _MainPage extends State<MainPage> {
     // 雲
     cloudOne = 3.5;
     // 建物
-    buildingOne = -0.6;
     // 背景
     back = 1;
   }
@@ -166,7 +146,7 @@ class _MainPage extends State<MainPage> {
               child: Stack(
                 children: [
                   AnimatedContainer(
-                    // アヒルの初期位置
+                    // ロケットの初期位置
                     alignment: Alignment(0, rocketYaxis),
                     duration: Duration(milliseconds: 0),
                     color: Colors.blue,
@@ -174,18 +154,9 @@ class _MainPage extends State<MainPage> {
                   ),
                   // ? 背景
                   Container(
-                    alignment: Alignment(back, 1.1),
+                    alignment: Alignment(1, back),
                     child: BackGround(
                       heightSize: 100.0,
-                      widthSize: 100.0,
-                    ),
-                  ),
-                  // ! ビル１ 高い
-                  AnimatedContainer(
-                    alignment: Alignment(0, buildingOne),
-                    duration: Duration(microseconds: 0),
-                    child: Building(
-                      heightSize: 290.0,
                       widthSize: 100.0,
                     ),
                   ),
