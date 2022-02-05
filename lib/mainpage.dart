@@ -11,17 +11,17 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPage extends State<MainPage> {
-  static double rocketYaxis = 0;
+  static double rocketYaxis = 0.5;
   double time = 0;
-  double height = 0;
-  double initialHeight = rocketYaxis;
+  double height = 0.5;
+  double initialHeight = 0;
   bool gameHasStarted = false;
 
   // 雲
-  static double cloudOne = 3.5;
-  double cloudOneDie = -0.65;
+  double cloudX = 0;
+  double cloudXDie = -0.65;
   // 背景
-  double back = 1;
+  double back = 0;
 
   void move() {
     setState(() {
@@ -43,20 +43,16 @@ class _MainPage extends State<MainPage> {
         // 雲 -----------------------------------------------
         setState(() {
           // 画面外に出たら
-          if (cloudOne < -8) {
-            cloudOne += 16.0;
+          if (cloudX < -8) {
+            cloudX += 16.0;
           } else {
-            cloudOne -= 0.08;
+            cloudX -= 0.08;
           }
         });
 
         // 建物 --------------------------------------------------
         setState(() {
-          if (back < 3) {
-            back += 4.5;
-          } else {
-            back += 0.01;
-          }
+          back += 0.01;
         });
 
         //! ゲームオーバー ======================================================
@@ -66,8 +62,8 @@ class _MainPage extends State<MainPage> {
           dialog();
         }
 
-        if (cloudOne <= 3 && cloudOne >= -3) {
-          if (rocketYaxis < cloudOneDie) {
+        if (cloudX <= 3 && cloudX >= -3) {
+          if (rocketYaxis < cloudXDie) {
             timer.cancel();
             dialog();
           }
@@ -77,17 +73,17 @@ class _MainPage extends State<MainPage> {
   }
 
   void resetPosition() {
-    rocketYaxis = 0;
+    rocketYaxis = 0.5;
     time = 0;
-    height = 0;
+    height = 0.5;
     initialHeight = rocketYaxis;
     gameHasStarted = false;
 
     // 雲
-    cloudOne = 3.5;
+    cloudX = 3.5;
     // 建物
     // 背景
-    back = 1;
+    back = 0;
   }
 
   void dialog() async {
@@ -139,75 +135,74 @@ class _MainPage extends State<MainPage> {
         }
       },
       child: Scaffold(
-        body: Column(
+        body: Stack(
           children: [
-            Expanded(
-              flex: 5,
-              child: Stack(
-                children: [
-                  AnimatedContainer(
-                    // ロケットの初期位置
-                    alignment: Alignment(0, rocketYaxis),
-                    duration: Duration(milliseconds: 0),
-                    color: Colors.blue,
-                    child: MyRocket(),
-                  ),
-                  // ? 背景
-                  Container(
-                    alignment: Alignment(1, back),
-                    child: BackGround(
-                      heightSize: 100.0,
-                      widthSize: 100.0,
-                    ),
-                  ),
-                  // * 雲１ 高い
-                  AnimatedContainer(
-                    alignment: Alignment(cloudOne, -0.9),
-                    duration: Duration(microseconds: 0),
-                    child: Cloud(
-                      heightSize: 100.0,
-                      widthSize: 300.0,
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment(0, -0.2),
-                    child: gameHasStarted
-                        ? Text('')
-                        : Text(
-                            'T A P  T O  P L A Y',
-                            style: TextStyle(fontSize: 20, color: Colors.white),
-                          ),
-                  ),
-                ],
-              ),
+            AnimatedContainer(
+              color: Colors.blue,
+              // ロケットの初期位置
+              alignment: Alignment(0, rocketYaxis),
+              duration: Duration(milliseconds: 0),
+              //color: Colors.blue,
+              child: MyRocket(),
             ),
-            Expanded(
-              flex: 1,
+            // ? 背景
+            Container(
+              alignment: Alignment(back, back + -1),
               child: Container(
-                color: Colors.brown,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'TIME',
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          '0',
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        ),
-                      ],
-                    ),
-                  ],
+                width: 200,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(width: 4, color: Colors.blue[200]),
+                  borderRadius: BorderRadius.circular(60),
                 ),
               ),
-            )
+            ),
+            // * 雲１ 高い
+            AnimatedContainer(
+              alignment: Alignment(cloudX, -0.5),
+              duration: Duration(microseconds: 0),
+              child: Cloud(
+                heightSize: 100.0,
+                widthSize: 300.0,
+              ),
+            ),
+            Container(
+              alignment: Alignment(0, -0.2),
+              child: gameHasStarted
+                  ? Text('')
+                  : Text(
+                      'T A P  T O  P L A Y',
+                      style: TextStyle(fontSize: 20, color: Colors.red),
+                    ),
+            ),
+            Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  height: 150,
+                  color: Colors.brown,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'TIME',
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            '0',
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                )),
           ],
         ),
       ),

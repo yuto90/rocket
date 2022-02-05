@@ -8,12 +8,12 @@ class Cloud extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: widthSize,
-      height: heightSize,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(width: 4, color: Colors.blue[200]),
-        borderRadius: BorderRadius.circular(60),
+      //color: Colors.red,
+      child: Image(
+        image: AssetImage('lib/images/cloud.png'),
+        fit: BoxFit.cover,
+        height: 90,
+        width: 90,
       ),
     );
   }
