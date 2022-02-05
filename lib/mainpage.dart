@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rocket/top.dart';
 import 'dart:async';
 import 'background.dart';
-import 'ahiru.dart';
+import 'rocket.dart';
 import 'cloud.dart';
 import 'building.dart';
 
@@ -12,10 +12,10 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPage extends State<MainPage> {
-  static double ahiruYaxis = 0;
+  static double rocketYaxis = 0;
   double time = 0;
   double height = 0;
-  double initialHeight = ahiruYaxis;
+  double initialHeight = rocketYaxis;
   bool gameHasStarted = false;
 
   // 雲
@@ -30,7 +30,7 @@ class _MainPage extends State<MainPage> {
   void move() {
     setState(() {
       time = 0;
-      initialHeight = ahiruYaxis;
+      initialHeight = rocketYaxis;
     });
   }
 
@@ -42,7 +42,7 @@ class _MainPage extends State<MainPage> {
         time += 0.02;
         height = -4.9 * time * time + 0.2 + time;
         setState(() {
-          ahiruYaxis = initialHeight - height;
+          rocketYaxis = initialHeight - height;
         });
         // 雲 -----------------------------------------------
         setState(() {
@@ -74,19 +74,19 @@ class _MainPage extends State<MainPage> {
 
         //! ゲームオーバー ======================================================
         // Y軸画面外に出たらゲームオーバー
-        if (ahiruYaxis > 1.1 || ahiruYaxis < -3) {
+        if (rocketYaxis > 1.1 || rocketYaxis < -3) {
           timer.cancel();
           dialog();
         }
 
         if (cloudOne <= 3 && cloudOne >= -3) {
-          if (ahiruYaxis < cloudOneDie) {
+          if (rocketYaxis < cloudOneDie) {
             timer.cancel();
             dialog();
           }
         }
         if (buildingOne <= 0.5 && buildingOne >= -0.5) {
-          if (ahiruYaxis > buildingOneDie) {
+          if (rocketYaxis > buildingOneDie) {
             timer.cancel();
             dialog();
           }
@@ -96,10 +96,10 @@ class _MainPage extends State<MainPage> {
   }
 
   void resetPosition() {
-    ahiruYaxis = 0;
+    rocketYaxis = 0;
     time = 0;
     height = 0;
-    initialHeight = ahiruYaxis;
+    initialHeight = rocketYaxis;
     gameHasStarted = false;
 
     // 雲
@@ -167,10 +167,10 @@ class _MainPage extends State<MainPage> {
                 children: [
                   AnimatedContainer(
                     // アヒルの初期位置
-                    alignment: Alignment(0, ahiruYaxis),
+                    alignment: Alignment(0, rocketYaxis),
                     duration: Duration(milliseconds: 0),
                     color: Colors.blue,
-                    child: MyAhiru(),
+                    child: MyRocket(),
                   ),
                   // ? 背景
                   Container(
