@@ -20,18 +20,10 @@ class _MainPage extends State<MainPage> {
 
   // 雲
   static double cloudOne = 3.5;
-  static double cloudTwo = cloudOne + 3.5;
-  double cloudThree = cloudTwo + 3.5;
   double cloudOneDie = -0.65;
-  double cloudTwoDie = -0.45;
-  double cloudThreeDie = -0.25;
   // 建物
   static double buildingOne = -0.6;
-  static double buildingTwo = buildingOne + 0.65;
-  double buildingThree = buildingTwo + 0.65;
   double buildingOneDie = 0.19;
-  double buildingTwoDie = 0.33;
-  double buildingThreeDie = 0.5;
   // 背景
   double back = 1;
 
@@ -62,22 +54,6 @@ class _MainPage extends State<MainPage> {
           }
         });
 
-        setState(() {
-          if (cloudTwo < -5) {
-            cloudTwo += 10.0;
-          } else {
-            cloudTwo -= 0.1;
-          }
-        });
-
-        setState(() {
-          if (cloudThree < -4) {
-            cloudThree += 10.0;
-          } else {
-            cloudThree -= 0.15;
-          }
-        });
-
         // 建物 --------------------------------------------------
         setState(() {
           if (buildingOne < -3) {
@@ -87,21 +63,6 @@ class _MainPage extends State<MainPage> {
           }
         });
 
-        setState(() {
-          if (buildingTwo < -3) {
-            buildingTwo += 6.0;
-          } else {
-            buildingTwo -= 0.1;
-          }
-        });
-
-        setState(() {
-          if (buildingThree < -3) {
-            buildingThree += 7.5;
-          } else {
-            buildingThree -= 0.1;
-          }
-        });
         // 建物 --------------------------------------------------
         setState(() {
           if (back < -3) {
@@ -112,6 +73,7 @@ class _MainPage extends State<MainPage> {
         });
 
         //! ゲームオーバー ======================================================
+        // Y軸画面外に出たらゲームオーバー
         if (ahiruYaxis > 1.1 || ahiruYaxis < -3) {
           timer.cancel();
           dialog();
@@ -119,41 +81,12 @@ class _MainPage extends State<MainPage> {
 
         if (cloudOne <= 3 && cloudOne >= -3) {
           if (ahiruYaxis < cloudOneDie) {
-            print('aaaaaaaaaaaaaaa');
             timer.cancel();
             dialog();
           }
         }
-        if (cloudTwo <= 2 && cloudTwo >= -1) {
-          if (ahiruYaxis < cloudTwoDie) {
-            print('bbbbbbbbbbbbbb');
-            timer.cancel();
-            dialog();
-          }
-        }
-        if (cloudThree <= 1 && cloudThree >= -1) {
-          if (ahiruYaxis < cloudThreeDie) {
-            print('cccccccccccccccccc');
-            timer.cancel();
-            dialog();
-          }
-        }
-
         if (buildingOne <= 0.5 && buildingOne >= -0.5) {
           if (ahiruYaxis > buildingOneDie) {
-            timer.cancel();
-            dialog();
-          }
-        }
-        if (buildingTwo <= 0.5 && buildingTwo >= -0.5) {
-          if (ahiruYaxis > buildingTwoDie) {
-            timer.cancel();
-            dialog();
-          }
-        }
-
-        if (buildingThree <= 0.5 && buildingThree >= -0.5) {
-          if (ahiruYaxis > buildingThreeDie) {
             timer.cancel();
             dialog();
           }
@@ -171,12 +104,8 @@ class _MainPage extends State<MainPage> {
 
     // 雲
     cloudOne = 3.5;
-    cloudTwo = cloudOne + 3.5;
-    cloudThree = cloudTwo + 3.5;
     // 建物
     buildingOne = -0.6;
-    buildingTwo = buildingOne + 0.65;
-    buildingThree = buildingTwo + 0.65;
     // 背景
     back = 1;
   }
@@ -253,7 +182,7 @@ class _MainPage extends State<MainPage> {
                   ),
                   // ! ビル１ 高い
                   AnimatedContainer(
-                    alignment: Alignment(buildingOne, 1.1),
+                    alignment: Alignment(0, buildingOne),
                     duration: Duration(microseconds: 0),
                     child: Building(
                       heightSize: 290.0,
@@ -267,42 +196,6 @@ class _MainPage extends State<MainPage> {
                     child: Cloud(
                       heightSize: 100.0,
                       widthSize: 300.0,
-                    ),
-                  ),
-                  // ! ビル2 中間
-                  AnimatedContainer(
-                    alignment: Alignment(buildingTwo, 1.1),
-                    duration: Duration(microseconds: 0),
-                    child: Building(
-                      heightSize: 250.0,
-                      widthSize: 100.0,
-                    ),
-                  ),
-                  // * 雲2 中間
-                  AnimatedContainer(
-                    alignment: Alignment(cloudTwo, -0.7),
-                    duration: Duration(microseconds: 0),
-                    child: Cloud(
-                      heightSize: 100.0,
-                      widthSize: 250.0,
-                    ),
-                  ),
-                  // ! ビル3 低い
-                  AnimatedContainer(
-                    alignment: Alignment(buildingThree, 1.1),
-                    duration: Duration(microseconds: 0),
-                    child: Building(
-                      heightSize: 200.0,
-                      widthSize: 100.0,
-                    ),
-                  ),
-                  // * 雲3 低い
-                  AnimatedContainer(
-                    alignment: Alignment(cloudThree, -0.5),
-                    duration: Duration(microseconds: 0),
-                    child: Cloud(
-                      heightSize: 100.0,
-                      widthSize: 200.0,
                     ),
                   ),
                   Container(
