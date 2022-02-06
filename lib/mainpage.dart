@@ -11,9 +11,9 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPage extends State<MainPage> {
-  static double rocketYaxis = 0.5;
+  static double rocketYaxis = 0;
   double time = 0;
-  double height = 0.5;
+  double height = 0;
   double initialHeight = 0;
   bool gameHasStarted = false;
 
@@ -22,6 +22,9 @@ class _MainPage extends State<MainPage> {
   double cloudXDie = -0.65;
   // 背景
   double back = 0;
+
+  // 発射台
+  double ground = 150;
 
   void move() {
     setState(() {
@@ -55,6 +58,13 @@ class _MainPage extends State<MainPage> {
           back += 0.01;
         });
 
+        // 発射台 --------------------------------------------------
+        if (ground > 0) {
+          setState(() {
+            ground -= 2;
+          });
+        }
+
         //! ゲームオーバー ======================================================
         // Y軸画面外に出たらゲームオーバー
         if (rocketYaxis > 1.1 || rocketYaxis < -3) {
@@ -73,17 +83,15 @@ class _MainPage extends State<MainPage> {
   }
 
   void resetPosition() {
-    rocketYaxis = 0.5;
+    rocketYaxis = 0;
     time = 0;
-    height = 0.5;
+    height = 0;
     initialHeight = rocketYaxis;
     gameHasStarted = false;
 
-    // 雲
     cloudX = 3.5;
-    // 建物
-    // 背景
     back = 0;
+    ground = 150;
   }
 
   void dialog() async {
@@ -137,12 +145,20 @@ class _MainPage extends State<MainPage> {
       child: Scaffold(
         body: Stack(
           children: [
-            AnimatedContainer(
+            Container(
               color: Colors.blue,
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                height: ground,
+                color: Colors.brown,
+              ),
+            ),
+            AnimatedContainer(
               // ロケットの初期位置
               alignment: Alignment(0, rocketYaxis),
               duration: Duration(milliseconds: 0),
-              //color: Colors.blue,
               child: MyRocket(),
             ),
             // ? 背景
@@ -158,6 +174,7 @@ class _MainPage extends State<MainPage> {
                 ),
               ),
             ),
+
             // * 雲１ 高い
             AnimatedContainer(
               alignment: Alignment(cloudX, -0.5),
@@ -176,33 +193,6 @@ class _MainPage extends State<MainPage> {
                       style: TextStyle(fontSize: 20, color: Colors.red),
                     ),
             ),
-            Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  height: 150,
-                  color: Colors.brown,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'TIME',
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            '0',
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                )),
           ],
         ),
       ),
