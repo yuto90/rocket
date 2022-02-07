@@ -4,12 +4,12 @@ class MyRocket extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      //color: Colors.red,
+      //color: Colors.green,
       child: Image(
         image: AssetImage('lib/images/rocket.png'),
-        //fit: BoxFit.cover,
-        height: 90,
-        width: 90,
+        fit: BoxFit.cover,
+        height: 70,
+        width: 45,
       ),
     );
   }

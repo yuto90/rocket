@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rocket/top.dart';
 import 'dart:async';
 import 'background.dart';
+import 'heri.dart';
 import 'rocket.dart';
 import 'cloud.dart';
 
@@ -20,6 +21,9 @@ class _MainPage extends State<MainPage> {
   // 雲
   double cloudX = 0;
   double cloudXDie = -0.65;
+  // 雲
+  double heriX = 0;
+  double heriXDie = -0.65;
   // 背景
   double back = 0;
 
@@ -53,6 +57,16 @@ class _MainPage extends State<MainPage> {
           }
         });
 
+        // ヘリ -----------------------------------------------
+        setState(() {
+          // 画面外に出たら
+          if (heriX < -8) {
+            heriX += 16.0;
+          } else {
+            heriX -= 0.08;
+          }
+        });
+
         // 建物 --------------------------------------------------
         setState(() {
           back += 0.01;
@@ -72,12 +86,12 @@ class _MainPage extends State<MainPage> {
           dialog();
         }
 
-        if (cloudX <= 3 && cloudX >= -3) {
-          if (rocketYaxis < cloudXDie) {
-            timer.cancel();
-            dialog();
-          }
-        }
+        //if (cloudX <= 3 && cloudX >= -3) {
+        //if (rocketYaxis < cloudXDie) {
+        //timer.cancel();
+        //dialog();
+        //}
+        //}
       },
     );
   }
@@ -90,6 +104,7 @@ class _MainPage extends State<MainPage> {
     gameHasStarted = false;
 
     cloudX = 3.5;
+    heriX = 3.5;
     back = 0;
     ground = 150;
   }
@@ -129,7 +144,6 @@ class _MainPage extends State<MainPage> {
         );
       },
     );
-    // リセット
   }
 
   @override
@@ -163,9 +177,9 @@ class _MainPage extends State<MainPage> {
             ),
             // ? 背景
             Container(
-              alignment: Alignment(back, back + -1),
+              alignment: Alignment(-1, back - 1.2),
               child: Container(
-                width: 200,
+                width: 300,
                 height: 100,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -174,12 +188,20 @@ class _MainPage extends State<MainPage> {
                 ),
               ),
             ),
-
-            // * 雲１ 高い
+            // * 雲１
             AnimatedContainer(
               alignment: Alignment(cloudX, -0.5),
               duration: Duration(microseconds: 0),
               child: Cloud(
+                heightSize: 100.0,
+                widthSize: 300.0,
+              ),
+            ),
+            // * ヘリ
+            AnimatedContainer(
+              alignment: Alignment(heriX, -0.5),
+              duration: Duration(microseconds: 0),
+              child: Heri(
                 heightSize: 100.0,
                 widthSize: 300.0,
               ),
