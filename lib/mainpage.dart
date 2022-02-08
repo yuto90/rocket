@@ -21,15 +21,15 @@ class _MainPage extends State<MainPage> {
   bool gameHasStarted = false;
 
   // ヘリ
-  double heri_1 = (Random().nextDouble() + 1) * 3; // todo ランダム
-  double heri_075 = (Random().nextDouble() + 1) * 3; // todo ランダム;
-  double heri_05 = (Random().nextDouble() + 1) * 3;
+  double heri_1 = (Random().nextDouble() + 3) * 3;
+  double heri_075 = (Random().nextDouble() + 1) * 3;
+  double heri_05 = (Random().nextDouble() + 3) * 3;
   double heri_025 = (Random().nextDouble() + 1) * 3;
-  double heri0 = (Random().nextDouble() + 1) * 3;
+  double heri0 = (Random().nextDouble() + 3) * 3;
   double heri025 = (Random().nextDouble() + 1) * 3;
-  double heri05 = (Random().nextDouble() + 1) * 3;
+  double heri05 = (Random().nextDouble() + 3) * 3;
   double heri075 = (Random().nextDouble() + 1) * 3;
-  double heri1 = (Random().nextDouble() + 1) * 3;
+  double heri1 = (Random().nextDouble() + 3) * 3;
 
   double heriXDie = -0.65;
   // 背景の雲
@@ -162,17 +162,51 @@ class _MainPage extends State<MainPage> {
 
         //! ゲームオーバー ======================================================
         // Y軸画面外に出たらゲームオーバー
-        if (rocketYaxis > 1.1 || rocketYaxis < -3) {
+        if (rocketYaxis > 1.1 || rocketYaxis < -1.1) {
           timer.cancel();
           dialog();
         }
 
-        //if (cloudX <= 3 && cloudX >= -3) {
-        //if (rocketYaxis < cloudXDie) {
-        //timer.cancel();
-        //dialog();
-        //}
-        //}
+        if ((heri_1 <= 0.1 && heri_1 >= -0.1) &&
+            (rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
+          timer.cancel();
+          dialog();
+        }
+        if ((heri_075 <= 0.1 && heri_075 >= -0.1) &&
+            (rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
+          timer.cancel();
+          dialog();
+        }
+        if ((heri_025 <= 0.1 && heri_025 >= -0.1) &&
+            (rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
+          timer.cancel();
+          dialog();
+        }
+        if ((heri0 <= 0.1 && heri0 >= -0.1) &&
+            (rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
+          timer.cancel();
+          dialog();
+        }
+        if ((heri025 <= 0.1 && heri025 >= -0.1) &&
+            (rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
+          timer.cancel();
+          dialog();
+        }
+        if ((heri05 <= 0.1 && heri05 >= -0.1) &&
+            (rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
+          timer.cancel();
+          dialog();
+        }
+        if ((heri075 <= 0.1 && heri075 >= -0.1) &&
+            (rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
+          timer.cancel();
+          dialog();
+        }
+        if ((heri1 <= 0.1 && heri1 >= -0.1) &&
+            (rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
+          timer.cancel();
+          dialog();
+        }
       },
     );
   }
@@ -185,7 +219,7 @@ class _MainPage extends State<MainPage> {
     gameHasStarted = false;
 
     // ヘリ
-    heri_1 = randomDouble(); // todo ランダム
+    heri_1 = randomDouble();
     heri_075 = randomDouble();
     heri_05 = randomDouble();
     heri_025 = randomDouble();
