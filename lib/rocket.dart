@@ -6,7 +6,7 @@ class MyRocket extends StatelessWidget {
     return Container(
       //color: Colors.green,
       child: Image(
-        image: AssetImage('lib/images/rocket.png'),
+        image: AssetImage('lib/images/rocket2.png'),
         fit: BoxFit.cover,
         height: 70,
         width: 45,

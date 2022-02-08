@@ -19,13 +19,11 @@ class _MainPage extends State<MainPage> {
   bool gameHasStarted = false;
 
   // 雲
-  double cloudX = 0;
-  double cloudXDie = -0.65;
-  // 雲
   double heriX = 0;
   double heriXDie = -0.65;
-  // 背景
+  // 背景の雲
   double back = 0;
+  double back2 = 0;
 
   // 発射台
   double ground = 150;
@@ -47,15 +45,6 @@ class _MainPage extends State<MainPage> {
         setState(() {
           rocketYaxis = initialHeight - height;
         });
-        // 雲 -----------------------------------------------
-        setState(() {
-          // 画面外に出たら
-          if (cloudX < -8) {
-            cloudX += 16.0;
-          } else {
-            cloudX -= 0.08;
-          }
-        });
 
         // ヘリ -----------------------------------------------
         setState(() {
@@ -67,15 +56,27 @@ class _MainPage extends State<MainPage> {
           }
         });
 
-        // 建物 --------------------------------------------------
+        // 背景 --------------------------------------------------
         setState(() {
-          back += 0.01;
+          if (back > 1.1) {
+            back = -1.1;
+          } else {
+            back += 0.01;
+          }
+        });
+
+        setState(() {
+          if (back2 > 1.1) {
+            back2 = -1.1;
+          } else {
+            back2 += 0.01;
+          }
         });
 
         // 発射台 --------------------------------------------------
         if (ground > 0) {
           setState(() {
-            ground -= 2;
+            ground -= 3;
           });
         }
 
@@ -103,9 +104,9 @@ class _MainPage extends State<MainPage> {
     initialHeight = rocketYaxis;
     gameHasStarted = false;
 
-    cloudX = 3.5;
     heriX = 3.5;
     back = 0;
+    back2 = 0;
     ground = 150;
   }
 
@@ -176,21 +177,30 @@ class _MainPage extends State<MainPage> {
               child: MyRocket(),
             ),
             // ? 背景
-            Container(
-              alignment: Alignment(-1, back - 1.2),
-              child: Container(
-                width: 300,
-                height: 100,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(width: 4, color: Colors.blue[200]),
-                  borderRadius: BorderRadius.circular(60),
-                ),
+            //Container(
+            //alignment: Alignment(-1, back - 1.2),
+            //child: Container(
+            //width: 300,
+            //height: 100,
+            //decoration: BoxDecoration(
+            //color: Colors.white,
+            //border: Border.all(width: 4, color: Colors.blue[200]),
+            //borderRadius: BorderRadius.circular(60),
+            //),
+            //),
+            //),
+            // * 雲背景
+            AnimatedContainer(
+              alignment: Alignment(-1, back2 - 1),
+              duration: Duration(microseconds: 0),
+              child: Cloud(
+                heightSize: 100.0,
+                widthSize: 300.0,
               ),
             ),
-            // * 雲１
+            // * 雲背景
             AnimatedContainer(
-              alignment: Alignment(cloudX, -0.5),
+              alignment: Alignment(1, back - 0.5),
               duration: Duration(microseconds: 0),
               child: Cloud(
                 heightSize: 100.0,
