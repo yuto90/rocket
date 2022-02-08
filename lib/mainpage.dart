@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:rocket/top.dart';
 import 'dart:async';
@@ -18,8 +20,17 @@ class _MainPage extends State<MainPage> {
   double initialHeight = 0;
   bool gameHasStarted = false;
 
-  // 雲
-  double heriX = 0;
+  // ヘリ
+  double heri_1 = (Random().nextDouble() + 1) * 3; // todo ランダム
+  double heri_075 = (Random().nextDouble() + 1) * 3; // todo ランダム;
+  double heri_05 = (Random().nextDouble() + 1) * 3;
+  double heri_025 = (Random().nextDouble() + 1) * 3;
+  double heri0 = (Random().nextDouble() + 1) * 3;
+  double heri025 = (Random().nextDouble() + 1) * 3;
+  double heri05 = (Random().nextDouble() + 1) * 3;
+  double heri075 = (Random().nextDouble() + 1) * 3;
+  double heri1 = (Random().nextDouble() + 1) * 3;
+
   double heriXDie = -0.65;
   // 背景の雲
   double back = 0;
@@ -27,6 +38,11 @@ class _MainPage extends State<MainPage> {
 
   // 発射台
   double ground = 150;
+
+  // オブジェクト位置リセット用の乱数を生成
+  double randomDouble() {
+    return (Random().nextDouble() + 1) * 2;
+  }
 
   void move() {
     setState(() {
@@ -49,10 +65,74 @@ class _MainPage extends State<MainPage> {
         // ヘリ -----------------------------------------------
         setState(() {
           // 画面外に出たら
-          if (heriX < -8) {
-            heriX += 16.0;
+          if (heri_1 < -3) {
+            heri_1 = randomDouble(); // todo ランダム
           } else {
-            heriX -= 0.08;
+            heri_1 -= 0.05;
+          }
+        });
+        setState(() {
+          // 画面外に出たら
+          if (heri_075 < -3) {
+            heri_075 = randomDouble();
+          } else {
+            heri_075 -= 0.05;
+          }
+        });
+        setState(() {
+          // 画面外に出たら
+          if (heri_05 < -3) {
+            heri_05 = randomDouble();
+          } else {
+            heri_05 -= 0.05;
+          }
+        });
+        setState(() {
+          // 画面外に出たら
+          if (heri_025 < -3) {
+            heri_025 = randomDouble();
+          } else {
+            heri_025 -= 0.05;
+          }
+        });
+        setState(() {
+          // 画面外に出たら
+          if (heri0 < -3) {
+            heri0 = randomDouble();
+          } else {
+            heri0 -= 0.05;
+          }
+        });
+        setState(() {
+          // 画面外に出たら
+          if (heri025 < -3) {
+            heri025 = randomDouble();
+          } else {
+            heri025 -= 0.05;
+          }
+        });
+        setState(() {
+          // 画面外に出たら
+          if (heri05 < -3) {
+            heri05 = randomDouble();
+          } else {
+            heri05 -= 0.05;
+          }
+        });
+        setState(() {
+          // 画面外に出たら
+          if (heri075 < -3) {
+            heri075 = randomDouble();
+          } else {
+            heri075 -= 0.05;
+          }
+        });
+        setState(() {
+          // 画面外に出たら
+          if (heri1 < -3) {
+            heri1 = randomDouble();
+          } else {
+            heri1 -= 0.05;
           }
         });
 
@@ -104,9 +184,19 @@ class _MainPage extends State<MainPage> {
     initialHeight = rocketYaxis;
     gameHasStarted = false;
 
-    heriX = 3.5;
-    back = 0;
-    back2 = 0;
+    // ヘリ
+    heri_1 = randomDouble(); // todo ランダム
+    heri_075 = randomDouble();
+    heri_05 = randomDouble();
+    heri_025 = randomDouble();
+    heri0 = randomDouble();
+    heri025 = randomDouble();
+    heri05 = randomDouble();
+    heri075 = randomDouble();
+    heri1 = randomDouble();
+    back = randomDouble();
+    back2 = randomDouble();
+    // 発射台
     ground = 150;
   }
 
@@ -116,7 +206,7 @@ class _MainPage extends State<MainPage> {
       builder: (_) {
         return AlertDialog(
           title: Text('ゲームオーバー'),
-          content: Text("あひるは死んでしまった!\nもっかいやる?"),
+          content: Text(""),
           actions: <Widget>[
             // ボタン領域
             FlatButton(
@@ -209,7 +299,79 @@ class _MainPage extends State<MainPage> {
             ),
             // * ヘリ
             AnimatedContainer(
-              alignment: Alignment(heriX, -0.5),
+              alignment: Alignment(heri_1, -1),
+              duration: Duration(microseconds: 0),
+              child: Heri(
+                heightSize: 100.0,
+                widthSize: 300.0,
+              ),
+            ),
+            // * ヘリ
+            AnimatedContainer(
+              alignment: Alignment(heri_075, -0.75),
+              duration: Duration(microseconds: 0),
+              child: Heri(
+                heightSize: 100.0,
+                widthSize: 300.0,
+              ),
+            ),
+            // * ヘリ
+            AnimatedContainer(
+              alignment: Alignment(heri_05, -0.5),
+              duration: Duration(microseconds: 0),
+              child: Heri(
+                heightSize: 100.0,
+                widthSize: 300.0,
+              ),
+            ),
+            // * ヘリ
+            AnimatedContainer(
+              alignment: Alignment(heri_025, -0.25),
+              duration: Duration(microseconds: 0),
+              child: Heri(
+                heightSize: 100.0,
+                widthSize: 300.0,
+              ),
+            ),
+            // * ヘリ
+            AnimatedContainer(
+              alignment: Alignment(heri0, 0),
+              duration: Duration(microseconds: 0),
+              child: Heri(
+                heightSize: 100.0,
+                widthSize: 300.0,
+              ),
+            ),
+            // * ヘリ
+            AnimatedContainer(
+              alignment: Alignment(heri025, 0.25),
+              duration: Duration(microseconds: 0),
+              child: Heri(
+                heightSize: 100.0,
+                widthSize: 300.0,
+              ),
+            ),
+            // * ヘリ
+            AnimatedContainer(
+              alignment: Alignment(heri05, 0.5),
+              duration: Duration(microseconds: 0),
+              child: Heri(
+                heightSize: 100.0,
+                widthSize: 300.0,
+              ),
+            ),
+            // * ヘリ
+            AnimatedContainer(
+              alignment: Alignment(heri075, 0.75),
+              duration: Duration(microseconds: 0),
+              child: Heri(
+                heightSize: 100.0,
+                widthSize: 300.0,
+              ),
+            ),
+            // * ヘリ
+            AnimatedContainer(
+              alignment: Alignment(heri1, 1),
               duration: Duration(microseconds: 0),
               child: Heri(
                 heightSize: 100.0,
