@@ -63,22 +63,22 @@ class _MainPage extends State<MainPage> {
         });
 
         // ヘリ -----------------------------------------------
-        setState(() {
-          // 画面外に出たら
-          if (heri_1 < -3) {
-            heri_1 = randomDouble(); // todo ランダム
-          } else {
-            heri_1 -= 0.05;
-          }
-        });
-        setState(() {
-          // 画面外に出たら
-          if (heri_075 < -3) {
-            heri_075 = randomDouble();
-          } else {
-            heri_075 -= 0.05;
-          }
-        });
+        //setState(() {
+        //// 画面外に出たら
+        //if (heri_1 < -3) {
+        //heri_1 = randomDouble();
+        //} else {
+        //heri_1 -= 0.05;
+        //}
+        //});
+        //setState(() {
+        //// 画面外に出たら
+        //if (heri_075 < -3) {
+        //heri_075 = randomDouble();
+        //} else {
+        //heri_075 -= 0.05;
+        //}
+        //});
         setState(() {
           // 画面外に出たら
           if (heri_05 < -3) {
@@ -103,38 +103,38 @@ class _MainPage extends State<MainPage> {
             heri0 -= 0.05;
           }
         });
-        setState(() {
-          // 画面外に出たら
-          if (heri025 < -3) {
-            heri025 = randomDouble();
-          } else {
-            heri025 -= 0.05;
-          }
-        });
-        setState(() {
-          // 画面外に出たら
-          if (heri05 < -3) {
-            heri05 = randomDouble();
-          } else {
-            heri05 -= 0.05;
-          }
-        });
-        setState(() {
-          // 画面外に出たら
-          if (heri075 < -3) {
-            heri075 = randomDouble();
-          } else {
-            heri075 -= 0.05;
-          }
-        });
-        setState(() {
-          // 画面外に出たら
-          if (heri1 < -3) {
-            heri1 = randomDouble();
-          } else {
-            heri1 -= 0.05;
-          }
-        });
+        //setState(() {
+        //// 画面外に出たら
+        //if (heri025 < -3) {
+        //heri025 = randomDouble();
+        //} else {
+        //heri025 -= 0.05;
+        //}
+        //});
+        //setState(() {
+        //// 画面外に出たら
+        //if (heri05 < -3) {
+        //heri05 = randomDouble();
+        //} else {
+        //heri05 -= 0.05;
+        //}
+        //});
+        //setState(() {
+        //// 画面外に出たら
+        //if (heri075 < -3) {
+        //heri075 = randomDouble();
+        //} else {
+        //heri075 -= 0.05;
+        //}
+        //});
+        //setState(() {
+        //// 画面外に出たら
+        //if (heri1 < -3) {
+        //heri1 = randomDouble();
+        //} else {
+        //heri1 -= 0.05;
+        //}
+        //});
 
         // 背景 --------------------------------------------------
         setState(() {
@@ -167,46 +167,46 @@ class _MainPage extends State<MainPage> {
           dialog();
         }
 
-        if ((heri_1 <= 0.1 && heri_1 >= -0.1) &&
-            (rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
+        //if ((heri_1 <= 0.1 && heri_1 >= -0.1) &&
+        //(rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
+        //timer.cancel();
+        //dialog();
+        //}
+        if ((heri_075 <= 0.15 && heri_075 >= -0.15) &&
+            (rocketYaxis <= -0.6 && rocketYaxis >= -0.9)) {
           timer.cancel();
           dialog();
         }
-        if ((heri_075 <= 0.1 && heri_075 >= -0.1) &&
-            (rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
+        if ((heri_025 <= 0.15 && heri_025 >= -0.15) &&
+            (rocketYaxis <= -0.1 && rocketYaxis >= -0.4)) {
           timer.cancel();
           dialog();
         }
-        if ((heri_025 <= 0.1 && heri_025 >= -0.1) &&
-            (rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
+        if ((heri0 <= 0.15 && heri0 >= -0.15) &&
+            (rocketYaxis <= 0.15 && rocketYaxis >= -0.15)) {
           timer.cancel();
           dialog();
         }
-        if ((heri0 <= 0.1 && heri0 >= -0.1) &&
-            (rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
-          timer.cancel();
-          dialog();
-        }
-        if ((heri025 <= 0.1 && heri025 >= -0.1) &&
-            (rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
-          timer.cancel();
-          dialog();
-        }
-        if ((heri05 <= 0.1 && heri05 >= -0.1) &&
-            (rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
-          timer.cancel();
-          dialog();
-        }
-        if ((heri075 <= 0.1 && heri075 >= -0.1) &&
-            (rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
-          timer.cancel();
-          dialog();
-        }
-        if ((heri1 <= 0.1 && heri1 >= -0.1) &&
-            (rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
-          timer.cancel();
-          dialog();
-        }
+        //if ((heri025 <= 0.1 && heri025 >= -0.1) &&
+        //(rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
+        //timer.cancel();
+        //dialog();
+        //}
+        //if ((heri05 <= 0.1 && heri05 >= -0.1) &&
+        //(rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
+        //timer.cancel();
+        //dialog();
+        //}
+        //if ((heri075 <= 0.1 && heri075 >= -0.1) &&
+        //(rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
+        //timer.cancel();
+        //dialog();
+        //}
+        //if ((heri1 <= 0.1 && heri1 >= -0.1) &&
+        //(rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
+        //timer.cancel();
+        //dialog();
+        //}
       },
     );
   }
@@ -217,6 +217,7 @@ class _MainPage extends State<MainPage> {
     height = 0;
     initialHeight = rocketYaxis;
     gameHasStarted = false;
+    ground = 150;
 
     // ヘリ
     heri_1 = randomDouble();
