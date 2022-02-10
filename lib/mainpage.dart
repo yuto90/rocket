@@ -33,8 +33,9 @@ class _MainPage extends State<MainPage> {
 
   double heriXDie = -0.65;
   // 背景の雲
-  double back = 0;
-  double back2 = 0;
+  double back = -1;
+  double back2 = -0.8;
+  double back3 = -0.6;
 
   // 発射台
   double ground = 150;
@@ -138,18 +139,26 @@ class _MainPage extends State<MainPage> {
 
         // 背景 --------------------------------------------------
         setState(() {
-          if (back > 1.1) {
-            back = -1.1;
+          if (back > 1.15) {
+            back = -1.2;
           } else {
             back += 0.01;
           }
         });
 
         setState(() {
-          if (back2 > 1.1) {
-            back2 = -1.1;
+          if (back2 > 1.5) {
+            back2 = -1.2;
           } else {
             back2 += 0.01;
+          }
+        });
+
+        setState(() {
+          if (back3 > 1.5) {
+            back3 = -1.2;
+          } else {
+            back3 += 0.01;
           }
         });
 
@@ -235,8 +244,12 @@ class _MainPage extends State<MainPage> {
     heri05 = randomDouble();
     heri075 = randomDouble();
     heri1 = randomDouble();
-    back = randomDouble();
-    back2 = randomDouble();
+    //back = randomDouble();
+    //back2 = randomDouble();
+
+    back = -1;
+    back2 = -0.8;
+    back3 = -0.6;
     // 発射台
     ground = 150;
   }
@@ -322,102 +335,75 @@ class _MainPage extends State<MainPage> {
             //),
             // * 雲背景
             AnimatedContainer(
-              alignment: Alignment(-1, back2 - 1),
+              alignment: Alignment(1, back3),
               duration: Duration(microseconds: 0),
-              child: Cloud(
-                heightSize: 100.0,
-                widthSize: 300.0,
-              ),
+              child: Cloud(),
             ),
             // * 雲背景
             AnimatedContainer(
-              alignment: Alignment(1, back - 0.5),
+              alignment: Alignment(-1, back2),
               duration: Duration(microseconds: 0),
-              child: Cloud(
-                heightSize: 100.0,
-                widthSize: 300.0,
-              ),
+              child: Cloud(),
+            ),
+            // * 雲背景
+            AnimatedContainer(
+              alignment: Alignment(1, back),
+              duration: Duration(microseconds: 0),
+              child: Cloud(),
             ),
             // * ヘリ
             AnimatedContainer(
               alignment: Alignment(heri_1, -1),
               duration: Duration(microseconds: 0),
-              child: Heri(
-                heightSize: 100.0,
-                widthSize: 300.0,
-              ),
+              child: Heri(),
             ),
             // * ヘリ
             AnimatedContainer(
               alignment: Alignment(heri_075, -0.75),
               duration: Duration(microseconds: 0),
-              child: Heri(
-                heightSize: 100.0,
-                widthSize: 300.0,
-              ),
+              child: Heri(),
             ),
             // * ヘリ
             AnimatedContainer(
               alignment: Alignment(heri_05, -0.5),
               duration: Duration(microseconds: 0),
-              child: Heri(
-                heightSize: 100.0,
-                widthSize: 300.0,
-              ),
+              child: Heri(),
             ),
             // * ヘリ
             AnimatedContainer(
               alignment: Alignment(heri_025, -0.25),
               duration: Duration(microseconds: 0),
-              child: Heri(
-                heightSize: 100.0,
-                widthSize: 300.0,
-              ),
+              child: Heri(),
             ),
             // * ヘリ
             AnimatedContainer(
               alignment: Alignment(heri0, 0),
               duration: Duration(microseconds: 0),
-              child: Heri(
-                heightSize: 100.0,
-                widthSize: 300.0,
-              ),
+              child: Heri(),
             ),
             // * ヘリ
             AnimatedContainer(
               alignment: Alignment(heri025, 0.25),
               duration: Duration(microseconds: 0),
-              child: Heri(
-                heightSize: 100.0,
-                widthSize: 300.0,
-              ),
+              child: Heri(),
             ),
             // * ヘリ
             AnimatedContainer(
               alignment: Alignment(heri05, 0.5),
               duration: Duration(microseconds: 0),
-              child: Heri(
-                heightSize: 100.0,
-                widthSize: 300.0,
-              ),
+              child: Heri(),
             ),
             // * ヘリ
             AnimatedContainer(
               alignment: Alignment(heri075, 0.75),
               duration: Duration(microseconds: 0),
-              child: Heri(
-                heightSize: 100.0,
-                widthSize: 300.0,
-              ),
+              child: Heri(),
             ),
             // * ヘリ
             AnimatedContainer(
               alignment: Alignment(heri1, 1),
               duration: Duration(microseconds: 0),
-              child: Heri(
-                heightSize: 100.0,
-                widthSize: 300.0,
-              ),
+              child: Heri(),
             ),
             Container(
               alignment: Alignment(0, -0.2),
