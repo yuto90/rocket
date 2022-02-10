@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:rocket/top.dart';
 import 'dart:async';
 import 'background.dart';
+import 'boy.dart';
 import 'heri.dart';
 import 'rocket.dart';
 import 'cloud.dart';
@@ -257,6 +258,7 @@ class _MainPage extends State<MainPage> {
   void dialog() async {
     await showDialog(
       context: context,
+      barrierDismissible: false, //ダイアログ外をタップしても消えないようにする
       builder: (_) {
         return AlertDialog(
           title: Text('ゲームオーバー'),
@@ -311,7 +313,16 @@ class _MainPage extends State<MainPage> {
               alignment: Alignment.bottomCenter,
               child: Container(
                 height: ground,
+                width: double.infinity,
                 color: Colors.brown,
+                child: Stack(
+                  children: [
+                    Align(
+                      alignment: Alignment(0.5, -1),
+                      child: Boy(),
+                    ),
+                  ],
+                ),
               ),
             ),
             AnimatedContainer(
@@ -320,19 +331,6 @@ class _MainPage extends State<MainPage> {
               duration: Duration(milliseconds: 0),
               child: MyRocket(),
             ),
-            // ? 背景
-            //Container(
-            //alignment: Alignment(-1, back - 1.2),
-            //child: Container(
-            //width: 300,
-            //height: 100,
-            //decoration: BoxDecoration(
-            //color: Colors.white,
-            //border: Border.all(width: 4, color: Colors.blue[200]),
-            //borderRadius: BorderRadius.circular(60),
-            //),
-            //),
-            //),
             // * 雲背景
             AnimatedContainer(
               alignment: Alignment(1, back3),
@@ -411,7 +409,7 @@ class _MainPage extends State<MainPage> {
                   ? Text('')
                   : Text(
                       'T A P  T O  P L A Y',
-                      style: TextStyle(fontSize: 20, color: Colors.red),
+                      style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
             ),
           ],
