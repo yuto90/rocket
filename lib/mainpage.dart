@@ -41,7 +41,7 @@ class _MainPage extends State<MainPage> {
 
   // オブジェクト位置リセット用の乱数を生成
   double randomDouble() {
-    return (Random().nextDouble() + 1) * 2;
+    return (Random().nextDouble() + 1) * 3;
   }
 
   void move() {
@@ -54,37 +54,37 @@ class _MainPage extends State<MainPage> {
   void startGame() {
     gameHasStarted = true;
     Timer.periodic(
-      Duration(milliseconds: 40),
+      Duration(milliseconds: 30),
       (timer) {
-        time += 0.02;
+        time += 0.015;
         height = -4.9 * time * time + 0.2 + time;
         setState(() {
           rocketYaxis = initialHeight - height;
         });
 
         // ヘリ -----------------------------------------------
-        //setState(() {
-        //// 画面外に出たら
-        //if (heri_1 < -3) {
-        //heri_1 = randomDouble();
-        //} else {
-        //heri_1 -= 0.05;
-        //}
-        //});
-        //setState(() {
-        //// 画面外に出たら
-        //if (heri_075 < -3) {
-        //heri_075 = randomDouble();
-        //} else {
-        //heri_075 -= 0.05;
-        //}
-        //});
+        setState(() {
+          // 画面外に出たら
+          if (heri_1 < -3) {
+            heri_1 = randomDouble();
+          } else {
+            heri_1 -= 0.03;
+          }
+        });
+        setState(() {
+          // 画面外に出たら
+          if (heri_075 < -3) {
+            heri_075 = randomDouble();
+          } else {
+            heri_075 -= 0.03;
+          }
+        });
         setState(() {
           // 画面外に出たら
           if (heri_05 < -3) {
             heri_05 = randomDouble();
           } else {
-            heri_05 -= 0.05;
+            heri_05 -= 0.03;
           }
         });
         setState(() {
@@ -92,7 +92,7 @@ class _MainPage extends State<MainPage> {
           if (heri_025 < -3) {
             heri_025 = randomDouble();
           } else {
-            heri_025 -= 0.05;
+            heri_025 -= 0.03;
           }
         });
         setState(() {
@@ -100,41 +100,41 @@ class _MainPage extends State<MainPage> {
           if (heri0 < -3) {
             heri0 = randomDouble();
           } else {
-            heri0 -= 0.05;
+            heri0 -= 0.03;
           }
         });
-        //setState(() {
-        //// 画面外に出たら
-        //if (heri025 < -3) {
-        //heri025 = randomDouble();
-        //} else {
-        //heri025 -= 0.05;
-        //}
-        //});
-        //setState(() {
-        //// 画面外に出たら
-        //if (heri05 < -3) {
-        //heri05 = randomDouble();
-        //} else {
-        //heri05 -= 0.05;
-        //}
-        //});
-        //setState(() {
-        //// 画面外に出たら
-        //if (heri075 < -3) {
-        //heri075 = randomDouble();
-        //} else {
-        //heri075 -= 0.05;
-        //}
-        //});
-        //setState(() {
-        //// 画面外に出たら
-        //if (heri1 < -3) {
-        //heri1 = randomDouble();
-        //} else {
-        //heri1 -= 0.05;
-        //}
-        //});
+        setState(() {
+          // 画面外に出たら
+          if (heri025 < -3) {
+            heri025 = randomDouble();
+          } else {
+            heri025 -= 0.03;
+          }
+        });
+        setState(() {
+          // 画面外に出たら
+          if (heri05 < -3) {
+            heri05 = randomDouble();
+          } else {
+            heri05 -= 0.03;
+          }
+        });
+        setState(() {
+          // 画面外に出たら
+          if (heri075 < -3) {
+            heri075 = randomDouble();
+          } else {
+            heri075 -= 0.03;
+          }
+        });
+        setState(() {
+          // 画面外に出たら
+          if (heri1 < -3) {
+            heri1 = randomDouble();
+          } else {
+            heri1 -= 0.03;
+          }
+        });
 
         // 背景 --------------------------------------------------
         setState(() {
@@ -167,46 +167,52 @@ class _MainPage extends State<MainPage> {
           dialog();
         }
 
-        //if ((heri_1 <= 0.1 && heri_1 >= -0.1) &&
-        //(rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
-        //timer.cancel();
-        //dialog();
-        //}
+        if ((heri_1 <= 0.15 && heri_1 >= -0.15) &&
+            (rocketYaxis < -0.85 && rocketYaxis > -1.15)) {
+          timer.cancel();
+          dialog();
+        }
         if ((heri_075 <= 0.15 && heri_075 >= -0.15) &&
-            (rocketYaxis <= -0.6 && rocketYaxis >= -0.9)) {
+            (rocketYaxis < -0.6 && rocketYaxis > -0.9)) {
+          timer.cancel();
+          dialog();
+        }
+        if ((heri_05 <= 0.15 && heri_05 >= -0.15) &&
+            (rocketYaxis < -0.35 && rocketYaxis > -0.65)) {
           timer.cancel();
           dialog();
         }
         if ((heri_025 <= 0.15 && heri_025 >= -0.15) &&
-            (rocketYaxis <= -0.1 && rocketYaxis >= -0.4)) {
+            (rocketYaxis < -0.1 && rocketYaxis > -0.4)) {
           timer.cancel();
           dialog();
         }
         if ((heri0 <= 0.15 && heri0 >= -0.15) &&
-            (rocketYaxis <= 0.15 && rocketYaxis >= -0.15)) {
+            (rocketYaxis < 0.15 && rocketYaxis > -0.15)) {
           timer.cancel();
           dialog();
         }
-        //if ((heri025 <= 0.1 && heri025 >= -0.1) &&
-        //(rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
-        //timer.cancel();
-        //dialog();
-        //}
-        //if ((heri05 <= 0.1 && heri05 >= -0.1) &&
-        //(rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
-        //timer.cancel();
-        //dialog();
-        //}
-        //if ((heri075 <= 0.1 && heri075 >= -0.1) &&
-        //(rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
-        //timer.cancel();
-        //dialog();
-        //}
-        //if ((heri1 <= 0.1 && heri1 >= -0.1) &&
-        //(rocketYaxis <= 0.1 && rocketYaxis >= -0.1)) {
-        //timer.cancel();
-        //dialog();
-        //}
+
+        if ((heri025 <= 0.15 && heri025 >= -0.15) &&
+            (rocketYaxis < 0.4 && rocketYaxis > 0.1)) {
+          timer.cancel();
+          dialog();
+        }
+        if ((heri05 <= 0.15 && heri05 >= -0.15) &&
+            (rocketYaxis < 0.65 && rocketYaxis > 0.35)) {
+          timer.cancel();
+          dialog();
+        }
+        if ((heri075 <= 0.15 && heri075 >= -0.15) &&
+            (rocketYaxis < 0.9 && rocketYaxis > 0.6)) {
+          timer.cancel();
+          dialog();
+        }
+        if ((heri1 <= 0.15 && heri1 >= -0.15) &&
+            (rocketYaxis < 1.15 && rocketYaxis > 0.85)) {
+          timer.cancel();
+          dialog();
+        }
       },
     );
   }
