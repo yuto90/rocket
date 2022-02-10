@@ -15,6 +15,8 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPage extends State<MainPage> {
+  String display = 'top';
+
   static double rocketYaxis = 0;
   double time = 0;
   double height = 0;
@@ -40,6 +42,7 @@ class _MainPage extends State<MainPage> {
 
   // 発射台
   double ground = 150;
+  double boy = 0.5;
 
   // オブジェクト位置リセット用の乱数を生成
   double randomDouble() {
@@ -169,6 +172,11 @@ class _MainPage extends State<MainPage> {
             ground -= 3;
           });
         }
+        if (boy > 0) {
+          setState(() {
+            boy -= 0.01;
+          });
+        }
 
         //! ゲームオーバー ======================================================
         // Y軸画面外に出たらゲームオーバー
@@ -270,13 +278,9 @@ class _MainPage extends State<MainPage> {
                 onPressed: () {
                   setState(() {
                     resetPosition();
+                    display = 'top';
                   });
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Top(),
-                    ),
-                  );
+                  Navigator.of(context).pop();
                 }),
             FlatButton(
               child: Text("Continue"),
@@ -299,7 +303,7 @@ class _MainPage extends State<MainPage> {
       onTap: () {
         if (gameHasStarted) {
           move();
-        } else {
+        } else if (display == 'ready') {
           startGame();
         }
       },
@@ -318,7 +322,7 @@ class _MainPage extends State<MainPage> {
                 child: Stack(
                   children: [
                     Align(
-                      alignment: Alignment(0.5, -1),
+                      alignment: Alignment(boy, -1),
                       child: Boy(),
                     ),
                   ],
@@ -403,15 +407,45 @@ class _MainPage extends State<MainPage> {
               duration: Duration(microseconds: 0),
               child: Heri(),
             ),
-            Container(
-              alignment: Alignment(0, -0.2),
-              child: gameHasStarted
-                  ? Text('')
-                  : Text(
-                      'T A P  T O  P L A Y',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+
+            display == 'top'
+                ? Container(
+                    alignment: Alignment(0, -0.2),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SizedBox(
+                          height: 130,
+                        ),
+                        Text(
+                          'Rocket',
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 180,
+                        ),
+                        OutlinedButton(
+                          onPressed: () {
+                            display = 'ready';
+                            setState(() {});
+                          },
+                          child: Text(
+                            'S T A R T',
+                            style: TextStyle(fontSize: 20, color: Colors.white),
+                          ),
+                        ),
+                      ],
                     ),
-            ),
+                  )
+                : Container(
+                    alignment: Alignment(0, -0.2),
+                    child: gameHasStarted
+                        ? Text('')
+                        : Text(
+                            'T A P  T O  P L A Y',
+                            style: TextStyle(fontSize: 20, color: Colors.white),
+                          ),
+                  ),
           ],
         ),
       ),
