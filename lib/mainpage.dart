@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'mainpage_model.dart';
 import 'objects/boy.dart';
-import 'objects/heri.dart';
+import 'objects/ufo.dart';
 import 'objects/rocket.dart';
 import 'objects/cloud.dart';
 
@@ -74,49 +74,49 @@ class MainPage extends StatelessWidget {
                   ),
                   // * ヘリ -----------------------------------------------------------
                   AnimatedContainer(
-                    alignment: Alignment(model.heri_1, -1),
+                    alignment: Alignment(model.ufo_1, -1),
                     duration: Duration(microseconds: 0),
-                    child: Heri(),
+                    child: Ufo(),
                   ),
                   AnimatedContainer(
-                    alignment: Alignment(model.heri_075, -0.75),
+                    alignment: Alignment(model.ufo_075, -0.75),
                     duration: Duration(microseconds: 0),
-                    child: Heri(),
+                    child: Ufo(),
                   ),
                   AnimatedContainer(
-                    alignment: Alignment(model.heri_05, -0.5),
+                    alignment: Alignment(model.ufo_05, -0.5),
                     duration: Duration(microseconds: 0),
-                    child: Heri(),
+                    child: Ufo(),
                   ),
                   AnimatedContainer(
-                    alignment: Alignment(model.heri_025, -0.25),
+                    alignment: Alignment(model.ufo_025, -0.25),
                     duration: Duration(microseconds: 0),
-                    child: Heri(),
+                    child: Ufo(),
                   ),
                   AnimatedContainer(
-                    alignment: Alignment(model.heri0, 0),
+                    alignment: Alignment(model.ufo0, 0),
                     duration: Duration(microseconds: 0),
-                    child: Heri(),
+                    child: Ufo(),
                   ),
                   AnimatedContainer(
-                    alignment: Alignment(model.heri025, 0.25),
+                    alignment: Alignment(model.ufo025, 0.25),
                     duration: Duration(microseconds: 0),
-                    child: Heri(),
+                    child: Ufo(),
                   ),
                   AnimatedContainer(
-                    alignment: Alignment(model.heri05, 0.5),
+                    alignment: Alignment(model.ufo05, 0.5),
                     duration: Duration(microseconds: 0),
-                    child: Heri(),
+                    child: Ufo(),
                   ),
                   AnimatedContainer(
-                    alignment: Alignment(model.heri075, 0.75),
+                    alignment: Alignment(model.ufo075, 0.75),
                     duration: Duration(microseconds: 0),
-                    child: Heri(),
+                    child: Ufo(),
                   ),
                   AnimatedContainer(
-                    alignment: Alignment(model.heri1, 1),
+                    alignment: Alignment(model.ufo1, 1),
                     duration: Duration(microseconds: 0),
-                    child: Heri(),
+                    child: Ufo(),
                   ),
 
                   // * ゲームスタート前

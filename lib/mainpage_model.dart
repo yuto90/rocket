@@ -12,17 +12,17 @@ class MainPageModel extends ChangeNotifier {
   bool gameHasStarted = false;
 
   // ヘリ
-  double heri_1 = (Random().nextDouble() + 3) * 3;
-  double heri_075 = (Random().nextDouble() + 1) * 3;
-  double heri_05 = (Random().nextDouble() + 3) * 3;
-  double heri_025 = (Random().nextDouble() + 1) * 3;
-  double heri0 = (Random().nextDouble() + 3) * 3;
-  double heri025 = (Random().nextDouble() + 1) * 3;
-  double heri05 = (Random().nextDouble() + 3) * 3;
-  double heri075 = (Random().nextDouble() + 1) * 3;
-  double heri1 = (Random().nextDouble() + 3) * 3;
+  double ufo_1 = (Random().nextDouble() + 3) * 3;
+  double ufo_075 = (Random().nextDouble() + 1) * 3;
+  double ufo_05 = (Random().nextDouble() + 3) * 3;
+  double ufo_025 = (Random().nextDouble() + 1) * 3;
+  double ufo0 = (Random().nextDouble() + 3) * 3;
+  double ufo025 = (Random().nextDouble() + 1) * 3;
+  double ufo05 = (Random().nextDouble() + 3) * 3;
+  double ufo075 = (Random().nextDouble() + 1) * 3;
+  double ufo1 = (Random().nextDouble() + 3) * 3;
 
-  double heriXDie = -0.65;
+  double ufoXDie = -0.65;
   // 背景の雲
   double back = -1;
   double back2 = -0.8;
@@ -80,66 +80,66 @@ class MainPageModel extends ChangeNotifier {
 
         // ヘリ -----------------------------------------------
         // 画面外に出たら
-        if (heri_1 < -3) {
-          heri_1 = randomDouble();
+        if (ufo_1 < -3) {
+          ufo_1 = randomDouble();
         } else {
-          heri_1 -= 0.03;
+          ufo_1 -= 0.03;
         }
         notifyListeners();
         // 画面外に出たら
-        if (heri_075 < -3) {
-          heri_075 = randomDouble();
+        if (ufo_075 < -3) {
+          ufo_075 = randomDouble();
         } else {
-          heri_075 -= 0.03;
+          ufo_075 -= 0.03;
         }
         notifyListeners();
         // 画面外に出たら
-        if (heri_05 < -3) {
-          heri_05 = randomDouble();
+        if (ufo_05 < -3) {
+          ufo_05 = randomDouble();
         } else {
-          heri_05 -= 0.03;
+          ufo_05 -= 0.03;
         }
         notifyListeners();
         // 画面外に出たら
-        if (heri_025 < -3) {
-          heri_025 = randomDouble();
+        if (ufo_025 < -3) {
+          ufo_025 = randomDouble();
         } else {
-          heri_025 -= 0.03;
+          ufo_025 -= 0.03;
         }
         notifyListeners();
         // 画面外に出たら
-        if (heri0 < -3) {
-          heri0 = randomDouble();
+        if (ufo0 < -3) {
+          ufo0 = randomDouble();
         } else {
-          heri0 -= 0.03;
+          ufo0 -= 0.03;
         }
         notifyListeners();
         // 画面外に出たら
-        if (heri025 < -3) {
-          heri025 = randomDouble();
+        if (ufo025 < -3) {
+          ufo025 = randomDouble();
         } else {
-          heri025 -= 0.03;
+          ufo025 -= 0.03;
         }
         notifyListeners();
         // 画面外に出たら
-        if (heri05 < -3) {
-          heri05 = randomDouble();
+        if (ufo05 < -3) {
+          ufo05 = randomDouble();
         } else {
-          heri05 -= 0.03;
+          ufo05 -= 0.03;
         }
         notifyListeners();
         // 画面外に出たら
-        if (heri075 < -3) {
-          heri075 = randomDouble();
+        if (ufo075 < -3) {
+          ufo075 = randomDouble();
         } else {
-          heri075 -= 0.03;
+          ufo075 -= 0.03;
         }
         notifyListeners();
         // 画面外に出たら
-        if (heri1 < -3) {
-          heri1 = randomDouble();
+        if (ufo1 < -3) {
+          ufo1 = randomDouble();
         } else {
-          heri1 -= 0.03;
+          ufo1 -= 0.03;
         }
         notifyListeners();
 
@@ -182,48 +182,48 @@ class MainPageModel extends ChangeNotifier {
           dialog(context);
         }
 
-        if ((heri_1 <= 0.15 && heri_1 >= -0.15) &&
+        if ((ufo_1 <= 0.15 && ufo_1 >= -0.15) &&
             (rocketYaxis < -0.85 && rocketYaxis > -1.15)) {
           timer.cancel();
           dialog(context);
         }
-        if ((heri_075 <= 0.15 && heri_075 >= -0.15) &&
+        if ((ufo_075 <= 0.15 && ufo_075 >= -0.15) &&
             (rocketYaxis < -0.6 && rocketYaxis > -0.9)) {
           timer.cancel();
           dialog(context);
         }
-        if ((heri_05 <= 0.15 && heri_05 >= -0.15) &&
+        if ((ufo_05 <= 0.15 && ufo_05 >= -0.15) &&
             (rocketYaxis < -0.35 && rocketYaxis > -0.65)) {
           timer.cancel();
           dialog(context);
         }
-        if ((heri_025 <= 0.15 && heri_025 >= -0.15) &&
+        if ((ufo_025 <= 0.15 && ufo_025 >= -0.15) &&
             (rocketYaxis < -0.1 && rocketYaxis > -0.4)) {
           timer.cancel();
           dialog(context);
         }
-        if ((heri0 <= 0.15 && heri0 >= -0.15) &&
+        if ((ufo0 <= 0.15 && ufo0 >= -0.15) &&
             (rocketYaxis < 0.15 && rocketYaxis > -0.15)) {
           timer.cancel();
           dialog(context);
         }
 
-        if ((heri025 <= 0.15 && heri025 >= -0.15) &&
+        if ((ufo025 <= 0.15 && ufo025 >= -0.15) &&
             (rocketYaxis < 0.4 && rocketYaxis > 0.1)) {
           timer.cancel();
           dialog(context);
         }
-        if ((heri05 <= 0.15 && heri05 >= -0.15) &&
+        if ((ufo05 <= 0.15 && ufo05 >= -0.15) &&
             (rocketYaxis < 0.65 && rocketYaxis > 0.35)) {
           timer.cancel();
           dialog(context);
         }
-        if ((heri075 <= 0.15 && heri075 >= -0.15) &&
+        if ((ufo075 <= 0.15 && ufo075 >= -0.15) &&
             (rocketYaxis < 0.9 && rocketYaxis > 0.6)) {
           timer.cancel();
           dialog(context);
         }
-        if ((heri1 <= 0.15 && heri1 >= -0.15) &&
+        if ((ufo1 <= 0.15 && ufo1 >= -0.15) &&
             (rocketYaxis < 1.15 && rocketYaxis > 0.85)) {
           timer.cancel();
           dialog(context);
@@ -243,15 +243,15 @@ class MainPageModel extends ChangeNotifier {
 
     count = 0;
     // ヘリ
-    heri_1 = randomDouble();
-    heri_075 = randomDouble();
-    heri_05 = randomDouble();
-    heri_025 = randomDouble();
-    heri0 = randomDouble();
-    heri025 = randomDouble();
-    heri05 = randomDouble();
-    heri075 = randomDouble();
-    heri1 = randomDouble();
+    ufo_1 = randomDouble();
+    ufo_075 = randomDouble();
+    ufo_05 = randomDouble();
+    ufo_025 = randomDouble();
+    ufo0 = randomDouble();
+    ufo025 = randomDouble();
+    ufo05 = randomDouble();
+    ufo075 = randomDouble();
+    ufo1 = randomDouble();
     //back = randomDouble();
     //back2 = randomDouble();
 
