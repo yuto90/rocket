@@ -28,6 +28,10 @@ class MainPage extends StatelessWidget {
                   Container(
                     color: Colors.blue,
                   ),
+                  Container(
+                    color: Colors.black,
+                    height: model.black,
+                  ),
                   // * 地面 ----------------------------------------------------------
                   Align(
                     alignment: Alignment.bottomCenter,

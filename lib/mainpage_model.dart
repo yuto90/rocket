@@ -32,6 +32,11 @@ class MainPageModel extends ChangeNotifier {
   double ground = 150;
   double boy = 0.5;
 
+  // 宇宙の背景色
+  double black = 0;
+
+  int count = 0;
+
   // initState的なやつ
   MainPageModel() {
     initValue();
@@ -66,6 +71,12 @@ class MainPageModel extends ChangeNotifier {
         height = -4.9 * time * time + 0.2 + time;
         rocketYaxis = initialHeight - height;
         notifyListeners();
+
+        count += 30;
+        // 1分経過したら背景を黒にする
+        if (black < 1500 && count >= 36000) {
+          black += 3;
+        }
 
         // ヘリ -----------------------------------------------
         // 画面外に出たら
@@ -132,7 +143,7 @@ class MainPageModel extends ChangeNotifier {
         }
         notifyListeners();
 
-        // 背景 --------------------------------------------------
+        //雲  --------------------------------------------------
         if (back > 1.15) {
           back = -1.2;
         } else {
@@ -228,7 +239,9 @@ class MainPageModel extends ChangeNotifier {
     initialHeight = rocketYaxis;
     gameHasStarted = false;
     ground = 150;
+    black = 0;
 
+    count = 0;
     // ヘリ
     heri_1 = randomDouble();
     heri_075 = randomDouble();
