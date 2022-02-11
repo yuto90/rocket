@@ -3,11 +3,11 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:rocket/top.dart';
 import 'dart:async';
-import 'background.dart';
-import 'boy.dart';
-import 'heri.dart';
-import 'rocket.dart';
-import 'cloud.dart';
+import 'objects/background.dart';
+import 'objects/boy.dart';
+import 'objects/heri.dart';
+import 'objects/rocket.dart';
+import 'objects/cloud.dart';
 
 class MainPage extends StatefulWidget {
   @override
