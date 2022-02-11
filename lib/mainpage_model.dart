@@ -1,7 +1,6 @@
+import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:math';
-
-import 'package:flutter/material.dart';
 
 class MainPageModel extends ChangeNotifier {
   String display = 'top';
@@ -33,6 +32,15 @@ class MainPageModel extends ChangeNotifier {
   double ground = 150;
   double boy = 0.5;
 
+  // initState的なやつ
+  MainPageModel() {
+    initValue();
+  }
+
+  void initValue() {
+    print('init');
+  }
+
   // オブジェクト位置リセット用の乱数を生成
   double randomDouble() {
     return (Random().nextDouble() + 1) * 3;
@@ -40,7 +48,6 @@ class MainPageModel extends ChangeNotifier {
 
   void switchDisplay() {
     display = 'ready';
-
     notifyListeners();
   }
 

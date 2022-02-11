@@ -1,11 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rocket/top.dart';
-import 'dart:async';
 import 'mainpage_model.dart';
-import 'objects/background.dart';
 import 'objects/boy.dart';
 import 'objects/heri.dart';
 import 'objects/rocket.dart';
@@ -29,9 +24,11 @@ class MainPage extends StatelessWidget {
             child: Scaffold(
               body: Stack(
                 children: [
+                  // * 空背景 ----------------------------------------------------------
                   Container(
                     color: Colors.blue,
                   ),
+                  // * 地面 ----------------------------------------------------------
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: Container(
@@ -48,85 +45,77 @@ class MainPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  // * ロケット ---------------------------------------------------------
                   AnimatedContainer(
                     // ロケットの初期位置
                     alignment: Alignment(0, model.rocketYaxis),
                     duration: Duration(milliseconds: 0),
                     child: MyRocket(),
                   ),
-                  // * 雲背景
+                  // * 雲背景 -----------------------------------------------------------
                   AnimatedContainer(
                     alignment: Alignment(1, model.back3),
                     duration: Duration(microseconds: 0),
                     child: Cloud(),
                   ),
-                  // * 雲背景
                   AnimatedContainer(
                     alignment: Alignment(-1, model.back2),
                     duration: Duration(microseconds: 0),
                     child: Cloud(),
                   ),
-                  // * 雲背景
                   AnimatedContainer(
                     alignment: Alignment(1, model.back),
                     duration: Duration(microseconds: 0),
                     child: Cloud(),
                   ),
-                  // * ヘリ
+                  // * ヘリ -----------------------------------------------------------
                   AnimatedContainer(
                     alignment: Alignment(model.heri_1, -1),
                     duration: Duration(microseconds: 0),
                     child: Heri(),
                   ),
-                  // * ヘリ
                   AnimatedContainer(
                     alignment: Alignment(model.heri_075, -0.75),
                     duration: Duration(microseconds: 0),
                     child: Heri(),
                   ),
-                  // * ヘリ
                   AnimatedContainer(
                     alignment: Alignment(model.heri_05, -0.5),
                     duration: Duration(microseconds: 0),
                     child: Heri(),
                   ),
-                  // * ヘリ
                   AnimatedContainer(
                     alignment: Alignment(model.heri_025, -0.25),
                     duration: Duration(microseconds: 0),
                     child: Heri(),
                   ),
-                  // * ヘリ
                   AnimatedContainer(
                     alignment: Alignment(model.heri0, 0),
                     duration: Duration(microseconds: 0),
                     child: Heri(),
                   ),
-                  // * ヘリ
                   AnimatedContainer(
                     alignment: Alignment(model.heri025, 0.25),
                     duration: Duration(microseconds: 0),
                     child: Heri(),
                   ),
-                  // * ヘリ
                   AnimatedContainer(
                     alignment: Alignment(model.heri05, 0.5),
                     duration: Duration(microseconds: 0),
                     child: Heri(),
                   ),
-                  // * ヘリ
                   AnimatedContainer(
                     alignment: Alignment(model.heri075, 0.75),
                     duration: Duration(microseconds: 0),
                     child: Heri(),
                   ),
-                  // * ヘリ
                   AnimatedContainer(
                     alignment: Alignment(model.heri1, 1),
                     duration: Duration(microseconds: 0),
                     child: Heri(),
                   ),
 
+                  // * ゲームスタート前
                   model.display == 'top'
                       ? Container(
                           alignment: Alignment(0, -0.2),
