@@ -183,48 +183,48 @@ class MainPageModel extends ChangeNotifier {
         }
 
         if ((ufo_1 <= 0.15 && ufo_1 >= -0.15) &&
-            (rocketYaxis < -0.85 && rocketYaxis > -1.15)) {
+            (rocketYaxis < -0.9 && rocketYaxis > -1.1)) {
           timer.cancel();
           dialog(context);
         }
         if ((ufo_075 <= 0.15 && ufo_075 >= -0.15) &&
-            (rocketYaxis < -0.6 && rocketYaxis > -0.9)) {
+            (rocketYaxis < -0.65 && rocketYaxis > -0.85)) {
           timer.cancel();
           dialog(context);
         }
         if ((ufo_05 <= 0.15 && ufo_05 >= -0.15) &&
-            (rocketYaxis < -0.35 && rocketYaxis > -0.65)) {
+            (rocketYaxis < -0.4 && rocketYaxis > -0.6)) {
           timer.cancel();
           dialog(context);
         }
         if ((ufo_025 <= 0.15 && ufo_025 >= -0.15) &&
-            (rocketYaxis < -0.1 && rocketYaxis > -0.4)) {
+            (rocketYaxis < -0.15 && rocketYaxis > -0.35)) {
           timer.cancel();
           dialog(context);
         }
         if ((ufo0 <= 0.15 && ufo0 >= -0.15) &&
-            (rocketYaxis < 0.15 && rocketYaxis > -0.15)) {
+            (rocketYaxis < 0.1 && rocketYaxis > -0.1)) {
           timer.cancel();
           dialog(context);
         }
 
         if ((ufo025 <= 0.15 && ufo025 >= -0.15) &&
-            (rocketYaxis < 0.4 && rocketYaxis > 0.1)) {
+            (rocketYaxis < 0.35 && rocketYaxis > 0.15)) {
           timer.cancel();
           dialog(context);
         }
         if ((ufo05 <= 0.15 && ufo05 >= -0.15) &&
-            (rocketYaxis < 0.65 && rocketYaxis > 0.35)) {
+            (rocketYaxis < 0.6 && rocketYaxis > 0.4)) {
           timer.cancel();
           dialog(context);
         }
         if ((ufo075 <= 0.15 && ufo075 >= -0.15) &&
-            (rocketYaxis < 0.9 && rocketYaxis > 0.6)) {
+            (rocketYaxis < 0.85 && rocketYaxis > 0.65)) {
           timer.cancel();
           dialog(context);
         }
         if ((ufo1 <= 0.15 && ufo1 >= -0.15) &&
-            (rocketYaxis < 1.15 && rocketYaxis > 0.85)) {
+            (rocketYaxis < 1.1 && rocketYaxis > 0.9)) {
           timer.cancel();
           dialog(context);
         }
