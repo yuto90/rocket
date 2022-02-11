@@ -74,7 +74,7 @@ class MainPageModel extends ChangeNotifier {
 
         count += 30;
         // 1分経過したら背景を黒にする
-        if (black < 1500 && count >= 36000) {
+        if (black < 1500 && count >= 72000) {
           black += 3;
         }
 
@@ -179,54 +179,54 @@ class MainPageModel extends ChangeNotifier {
         // Y軸画面外に出たらゲームオーバー
         if (rocketYaxis > 1.1 || rocketYaxis < -1.1) {
           timer.cancel();
-          dialog(context);
+          display = 'game_over';
         }
 
         if ((ufo_1 <= 0.15 && ufo_1 >= -0.15) &&
             (rocketYaxis < -0.9 && rocketYaxis > -1.1)) {
           timer.cancel();
-          dialog(context);
+          display = 'game_over';
         }
         if ((ufo_075 <= 0.15 && ufo_075 >= -0.15) &&
             (rocketYaxis < -0.65 && rocketYaxis > -0.85)) {
           timer.cancel();
-          dialog(context);
+          display = 'game_over';
         }
         if ((ufo_05 <= 0.15 && ufo_05 >= -0.15) &&
             (rocketYaxis < -0.4 && rocketYaxis > -0.6)) {
           timer.cancel();
-          dialog(context);
+          display = 'game_over';
         }
         if ((ufo_025 <= 0.15 && ufo_025 >= -0.15) &&
             (rocketYaxis < -0.15 && rocketYaxis > -0.35)) {
           timer.cancel();
-          dialog(context);
+          display = 'game_over';
         }
         if ((ufo0 <= 0.15 && ufo0 >= -0.15) &&
             (rocketYaxis < 0.1 && rocketYaxis > -0.1)) {
           timer.cancel();
-          dialog(context);
+          display = 'game_over';
         }
 
         if ((ufo025 <= 0.15 && ufo025 >= -0.15) &&
             (rocketYaxis < 0.35 && rocketYaxis > 0.15)) {
           timer.cancel();
-          dialog(context);
+          display = 'game_over';
         }
         if ((ufo05 <= 0.15 && ufo05 >= -0.15) &&
             (rocketYaxis < 0.6 && rocketYaxis > 0.4)) {
           timer.cancel();
-          dialog(context);
+          display = 'game_over';
         }
         if ((ufo075 <= 0.15 && ufo075 >= -0.15) &&
             (rocketYaxis < 0.85 && rocketYaxis > 0.65)) {
           timer.cancel();
-          dialog(context);
+          display = 'game_over';
         }
         if ((ufo1 <= 0.15 && ufo1 >= -0.15) &&
             (rocketYaxis < 1.1 && rocketYaxis > 0.9)) {
           timer.cancel();
-          dialog(context);
+          display = 'game_over';
         }
       },
     );
@@ -262,35 +262,7 @@ class MainPageModel extends ChangeNotifier {
     ground = 150;
   }
 
-  void dialog(context) async {
-    await showDialog(
-      context: context,
-      barrierDismissible: false, //ダイアログ外をタップしても消えないようにする
-      builder: (_) {
-        return AlertDialog(
-          title: Text('ゲームオーバー'),
-          content: Text(""),
-          actions: <Widget>[
-            // ボタン領域
-            FlatButton(
-                child: Text("Exit"),
-                onPressed: () {
-                  resetPosition();
-                  display = 'top';
-                  notifyListeners();
-                  Navigator.of(context).pop();
-                }),
-            FlatButton(
-              child: Text("Continue"),
-              onPressed: () {
-                resetPosition();
-                notifyListeners();
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
+  void reload() {
+    notifyListeners();
   }
 }

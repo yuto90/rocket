@@ -119,16 +119,13 @@ class MainPage extends StatelessWidget {
                     child: Ufo(),
                   ),
 
-                  // * ゲームスタート前
+                  // * タイトル画面
                   model.display == 'top'
-                      ? Container(
-                          alignment: Alignment(0, -0.2),
+                      ? Align(
+                          alignment: Alignment.center,
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              SizedBox(
-                                height: 130,
-                              ),
                               Text(
                                 'Rocket',
                                 style: TextStyle(
@@ -150,7 +147,10 @@ class MainPage extends StatelessWidget {
                             ],
                           ),
                         )
-                      : Container(
+                      : Text(''),
+                  // * ゲーム開始画面
+                  model.display == 'ready'
+                      ? Align(
                           alignment: Alignment(0, -0.2),
                           child: model.gameHasStarted
                               ? Text('')
@@ -159,7 +159,53 @@ class MainPage extends StatelessWidget {
                                   style: TextStyle(
                                       fontSize: 20, color: Colors.white),
                                 ),
-                        ),
+                        )
+                      : Text(''),
+                  // * ゲームオーバー画面画面
+                  model.display == 'game_over'
+                      ? Align(
+                          alignment: Alignment.center,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                'G A M E  O V E R',
+                                style: TextStyle(
+                                    fontSize: 20, color: Colors.white),
+                              ),
+                              SizedBox(
+                                height: 180,
+                              ),
+                              OutlinedButton(
+                                onPressed: () {
+                                  //model.switchDisplay();
+                                  model.display = 'ready';
+                                  model.resetPosition();
+                                  model.reload();
+                                },
+                                child: Text(
+                                  'C O N T I N U E',
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.white),
+                                ),
+                              ),
+                              OutlinedButton(
+                                onPressed: () {
+                                  //model.switchDisplay();
+                                  model.display = 'top';
+                                  model.resetPosition();
+                                  model.reload();
+                                },
+                                child: Text(
+                                  'E X I T',
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.white),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      : Text(''),
                 ],
               ),
             ),
