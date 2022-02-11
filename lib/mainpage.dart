@@ -56,22 +56,6 @@ class MainPage extends StatelessWidget {
                     duration: Duration(milliseconds: 0),
                     child: MyRocket(),
                   ),
-                  // * 雲背景 -----------------------------------------------------------
-                  AnimatedContainer(
-                    alignment: Alignment(1, model.back3),
-                    duration: Duration(microseconds: 0),
-                    child: Cloud(),
-                  ),
-                  AnimatedContainer(
-                    alignment: Alignment(-1, model.back2),
-                    duration: Duration(microseconds: 0),
-                    child: Cloud(),
-                  ),
-                  AnimatedContainer(
-                    alignment: Alignment(1, model.back),
-                    duration: Duration(microseconds: 0),
-                    child: Cloud(),
-                  ),
                   // * ヘリ -----------------------------------------------------------
                   AnimatedContainer(
                     alignment: Alignment(model.ufo_1, -1),
@@ -117,6 +101,22 @@ class MainPage extends StatelessWidget {
                     alignment: Alignment(model.ufo1, 1),
                     duration: Duration(microseconds: 0),
                     child: Ufo(),
+                  ),
+                  // * 雲背景 -----------------------------------------------------------
+                  AnimatedContainer(
+                    alignment: Alignment(1, model.back3),
+                    duration: Duration(microseconds: 0),
+                    child: Cloud(),
+                  ),
+                  AnimatedContainer(
+                    alignment: Alignment(-1, model.back2),
+                    duration: Duration(microseconds: 0),
+                    child: Cloud(),
+                  ),
+                  AnimatedContainer(
+                    alignment: Alignment(1, model.back),
+                    duration: Duration(microseconds: 0),
+                    child: Cloud(),
                   ),
 
                   // * タイトル画面
