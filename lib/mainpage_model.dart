@@ -74,7 +74,7 @@ class MainPageModel extends ChangeNotifier {
 
         count += 30;
         // 1分経過したら背景を黒にする
-        if (black < 1500 && count >= 72000) {
+        if (black < 1500 && count >= 60000) {
           black += 3;
         }
 
