@@ -47,20 +47,20 @@ class MainPageModel extends ChangeNotifier {
 
   void initValue() {
     print('init');
-    ufo_1 = randomDouble();
-    ufo_075 = randomDouble();
-    ufo_05 = randomDouble();
-    ufo_025 = randomDouble();
-    ufo0 = randomDouble();
-    ufo025 = randomDouble();
-    ufo05 = randomDouble();
-    ufo075 = randomDouble();
-    ufo1 = randomDouble();
+    ufo_1 = randomDouble(2);
+    ufo_075 = randomDouble(2);
+    ufo_05 = randomDouble(2);
+    ufo_025 = randomDouble(2);
+    ufo0 = randomDouble(2);
+    ufo025 = randomDouble(2);
+    ufo05 = randomDouble(2);
+    ufo075 = randomDouble(2);
+    ufo1 = randomDouble(2);
   }
 
   // オブジェクト位置リセット用の乱数を生成
-  double randomDouble() {
-    return (Random().nextDouble() + 1) * 1.7;
+  double randomDouble(double coefficient) {
+    return (Random().nextDouble() + 1) * coefficient;
   }
 
   void switchDisplay() {
@@ -104,55 +104,55 @@ class MainPageModel extends ChangeNotifier {
         // ヘリ -----------------------------------------------
         // 画面外に出たら
         if (ufo_1 < -1.2) {
-          ufo_1 = randomDouble();
+          ufo_1 = randomDouble(2);
         } else {
           ufo_1 -= 0.03;
         }
         notifyListeners();
         if (ufo_075 < -1.2) {
-          ufo_075 = randomDouble();
+          ufo_075 = randomDouble(2);
         } else {
           ufo_075 -= 0.03;
         }
         notifyListeners();
         if (ufo_05 < -1.2) {
-          ufo_05 = randomDouble();
+          ufo_05 = randomDouble(2);
         } else {
           ufo_05 -= 0.03;
         }
         notifyListeners();
         if (ufo_025 < -1.2) {
-          ufo_025 = randomDouble();
+          ufo_025 = randomDouble(2);
         } else {
           ufo_025 -= 0.03;
         }
         notifyListeners();
         if (ufo0 < -1.2) {
-          ufo0 = randomDouble();
+          ufo0 = randomDouble(2);
         } else {
           ufo0 -= 0.03;
         }
         notifyListeners();
         if (ufo025 < -1.2) {
-          ufo025 = randomDouble();
+          ufo025 = randomDouble(2);
         } else {
           ufo025 -= 0.03;
         }
         notifyListeners();
         if (ufo05 < -1.2) {
-          ufo05 = randomDouble();
+          ufo05 = randomDouble(2);
         } else {
           ufo05 -= 0.03;
         }
         notifyListeners();
         if (ufo075 < -1.2) {
-          ufo075 = randomDouble();
+          ufo075 = randomDouble(2);
         } else {
           ufo075 -= 0.03;
         }
         notifyListeners();
         if (ufo1 < -1.2) {
-          ufo1 = randomDouble();
+          ufo1 = randomDouble(2);
         } else {
           ufo1 -= 0.03;
         }
@@ -258,15 +258,15 @@ class MainPageModel extends ChangeNotifier {
 
     count = 0;
     // UFO
-    ufo_1 = randomDouble();
-    ufo_075 = randomDouble();
-    ufo_05 = randomDouble();
-    ufo_025 = randomDouble();
-    ufo0 = randomDouble();
-    ufo025 = randomDouble();
-    ufo05 = randomDouble();
-    ufo075 = randomDouble();
-    ufo1 = randomDouble();
+    ufo_1 = randomDouble(2);
+    ufo_075 = randomDouble(2);
+    ufo_05 = randomDouble(2);
+    ufo_025 = randomDouble(2);
+    ufo0 = randomDouble(2);
+    ufo025 = randomDouble(2);
+    ufo05 = randomDouble(2);
+    ufo075 = randomDouble(2);
+    ufo1 = randomDouble(2);
 
     back = -1;
     back2 = -0.8;
