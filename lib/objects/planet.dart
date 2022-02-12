@@ -8,8 +8,8 @@ class Planet extends StatelessWidget {
       child: Image(
         image: AssetImage('lib/images/planet.png'),
         fit: BoxFit.cover,
-        height: 200,
-        width: 200,
+        height: 100,
+        width: 100,
       ),
     );
   }

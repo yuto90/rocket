@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rocket/objects/planet.dart';
 import 'mainpage_model.dart';
+import 'objects/goal.dart';
 import 'objects/boy.dart';
+import 'objects/star.dart';
 import 'objects/ufo.dart';
 import 'objects/rocket.dart';
 import 'objects/cloud.dart';
@@ -31,20 +32,7 @@ class MainPage extends StatelessWidget {
                   ),
                   Container(
                     height: model.space,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                        stops: [
-                          -0.4,
-                          0.1,
-                        ],
-                        colors: [
-                          Colors.blue,
-                          Colors.deepPurple[900],
-                        ],
-                      ),
-                    ),
+                    color: Colors.blueGrey[800],
                   ),
                   // * 地面 ----------------------------------------------------------
                   Align(
@@ -63,11 +51,11 @@ class MainPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // * 惑星 -----------------------------------------------------------
+                  // * ゴール -----------------------------------------------------------
                   AnimatedContainer(
-                    alignment: Alignment(0, model.planet),
+                    alignment: Alignment(0, model.goal),
                     duration: Duration(microseconds: 0),
-                    child: Planet(),
+                    child: Goal(),
                   ),
                   // * ロケット ---------------------------------------------------------
                   AnimatedContainer(
@@ -137,6 +125,22 @@ class MainPage extends StatelessWidget {
                     alignment: Alignment(1, model.back),
                     duration: Duration(microseconds: 0),
                     child: Cloud(),
+                  ),
+                  // * 星 -----------------------------------------------------------
+                  AnimatedContainer(
+                    alignment: Alignment((model.star3 * -1), model.star3),
+                    duration: Duration(microseconds: 0),
+                    child: Star(),
+                  ),
+                  AnimatedContainer(
+                    alignment: Alignment((model.star2 * -1), model.star2),
+                    duration: Duration(microseconds: 0),
+                    child: Star(),
+                  ),
+                  AnimatedContainer(
+                    alignment: Alignment((model.star * -1), model.star),
+                    duration: Duration(microseconds: 0),
+                    child: Star(),
                   ),
 
                   // * タイトル画面

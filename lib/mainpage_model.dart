@@ -22,11 +22,15 @@ class MainPageModel extends ChangeNotifier {
   double ufo075 = 0;
   double ufo1 = 0;
 
-  double ufoXDie = -0.65;
   // 背景の雲
   double back = -1;
   double back2 = -0.8;
   double back3 = -0.6;
+
+  // 背景の雲
+  double star = -2;
+  double star2 = -2.8;
+  double star3 = -2.6;
 
   // 発射台
   double ground = 150;
@@ -36,7 +40,7 @@ class MainPageModel extends ChangeNotifier {
   double space = 0;
 
   // 惑星
-  double planet = -3;
+  double goal = -3;
   // ゲームスタートからの時間
   int count = 0;
 
@@ -92,16 +96,16 @@ class MainPageModel extends ChangeNotifier {
 
         // 1分経過したら背景を黒にする
         if (count >= 60000) {
-          planet += 0.01;
+          goal += 0.01;
         }
 
         // ! 惑星に近づいたらクリア
-        if ((planet - rocketYaxis) >= -0.1) {
+        if ((goal - rocketYaxis) >= -0.1) {
           timer.cancel();
           display = 'clear';
         }
 
-        // ヘリ -----------------------------------------------
+        // 障害物 -----------------------------------------------
         // 画面外に出たら
         if (ufo_1 < -1.2) {
           ufo_1 = randomDouble(2);
@@ -179,6 +183,27 @@ class MainPageModel extends ChangeNotifier {
           back3 += 0.01;
         }
         notifyListeners();
+        // 星 -------------------------------------------------------
+        if (star > 1.2 && count >= 30000) {
+          star = -1.2;
+        } else if (count >= 30000) {
+          star += 0.01;
+        }
+        notifyListeners();
+
+        if (star2 > 1.5 && count >= 30000) {
+          star2 = -1.2;
+        } else if (count >= 30000) {
+          star2 += 0.01;
+        }
+        notifyListeners();
+
+        if (star3 > 1.8 && count >= 30000) {
+          star3 = -1.2;
+        } else if (count >= 30000) {
+          star3 += 0.01;
+        }
+        notifyListeners();
 
         // 発射台 --------------------------------------------------
         if (ground > 0) {
@@ -222,7 +247,6 @@ class MainPageModel extends ChangeNotifier {
           timer.cancel();
           display = 'game_over';
         }
-
         if ((ufo025 <= 0.15 && ufo025 >= -0.15) &&
             (rocketYaxis < 0.35 && rocketYaxis > 0.15)) {
           timer.cancel();
@@ -271,7 +295,12 @@ class MainPageModel extends ChangeNotifier {
     back = -1;
     back2 = -0.8;
     back3 = -0.6;
-    planet = -3;
+
+    star = -2;
+    star2 = -2.8;
+    star3 = -2.6;
+
+    goal = -3;
     // 発射台
     ground = 150;
   }
