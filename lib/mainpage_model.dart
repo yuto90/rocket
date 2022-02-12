@@ -35,6 +35,9 @@ class MainPageModel extends ChangeNotifier {
   // 宇宙の背景色
   double black = 0;
 
+  // 惑星
+  double planet = -3;
+  // ゲームスタートからの時間
   int count = 0;
 
   // initState的なやつ
@@ -174,6 +177,11 @@ class MainPageModel extends ChangeNotifier {
         }
         notifyListeners();
 
+        // 惑星 -----------------------------------------------
+        if (count >= 120000) {
+          planet += 0.01;
+        }
+
         // 発射台 --------------------------------------------------
         if (ground > 0) {
           ground -= 3;
@@ -267,6 +275,7 @@ class MainPageModel extends ChangeNotifier {
     back = -1;
     back2 = -0.8;
     back3 = -0.6;
+    planet = -3;
     // 発射台
     ground = 150;
   }

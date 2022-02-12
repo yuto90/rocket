@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rocket/objects/planet.dart';
 import 'mainpage_model.dart';
 import 'objects/boy.dart';
 import 'objects/ufo.dart';
@@ -130,6 +131,12 @@ class MainPage extends StatelessWidget {
                     alignment: Alignment(1, model.back),
                     duration: Duration(microseconds: 0),
                     child: Cloud(),
+                  ),
+                  // * 惑星 -----------------------------------------------------------
+                  AnimatedContainer(
+                    alignment: Alignment(0, model.planet),
+                    duration: Duration(microseconds: 0),
+                    child: Planet(),
                   ),
 
                   // * タイトル画面
