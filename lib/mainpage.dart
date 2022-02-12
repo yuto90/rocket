@@ -30,18 +30,18 @@ class MainPage extends StatelessWidget {
                     color: Colors.blue,
                   ),
                   Container(
-                    height: model.black,
+                    height: model.space,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.bottomCenter,
                         end: Alignment.topCenter,
                         stops: [
                           -0.4,
-                          0.2,
+                          0.1,
                         ],
                         colors: [
                           Colors.blue,
-                          Colors.black,
+                          Colors.deepPurple[900],
                         ],
                       ),
                     ),

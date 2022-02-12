@@ -33,7 +33,7 @@ class MainPageModel extends ChangeNotifier {
   double boy = 0.5;
 
   // 宇宙の背景色
-  double black = 0;
+  double space = 0;
 
   // 惑星
   double planet = -3;
@@ -86,8 +86,8 @@ class MainPageModel extends ChangeNotifier {
 
         count += 30;
         // 30秒経過したら背景を黒にする
-        if (black < 1500 && count >= 30000) {
-          black += 3;
+        if (space < 1500 && count >= 30000) {
+          space += 3;
         }
 
         // 1分経過したら背景を黒にする
@@ -254,7 +254,7 @@ class MainPageModel extends ChangeNotifier {
     initialHeight = rocketYaxis;
     gameHasStarted = false;
     ground = 150;
-    black = 0;
+    space = 0;
 
     count = 0;
     // UFO
