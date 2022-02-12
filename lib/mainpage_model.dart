@@ -12,15 +12,15 @@ class MainPageModel extends ChangeNotifier {
   bool gameHasStarted = false;
 
   // ヘリ
-  double ufo_1 = (Random().nextDouble() + 3) * 3;
-  double ufo_075 = (Random().nextDouble() + 1) * 3;
-  double ufo_05 = (Random().nextDouble() + 3) * 3;
-  double ufo_025 = (Random().nextDouble() + 1) * 3;
-  double ufo0 = (Random().nextDouble() + 3) * 3;
-  double ufo025 = (Random().nextDouble() + 1) * 3;
-  double ufo05 = (Random().nextDouble() + 3) * 3;
-  double ufo075 = (Random().nextDouble() + 1) * 3;
-  double ufo1 = (Random().nextDouble() + 3) * 3;
+  double ufo_1 = 0;
+  double ufo_075 = 0;
+  double ufo_05 = 0;
+  double ufo_025 = 0;
+  double ufo0 = 0;
+  double ufo025 = 0;
+  double ufo05 = 0;
+  double ufo075 = 0;
+  double ufo1 = 0;
 
   double ufoXDie = -0.65;
   // 背景の雲
@@ -44,11 +44,20 @@ class MainPageModel extends ChangeNotifier {
 
   void initValue() {
     print('init');
+    ufo_1 = randomDouble();
+    ufo_075 = randomDouble();
+    ufo_05 = randomDouble();
+    ufo_025 = randomDouble();
+    ufo0 = randomDouble();
+    ufo025 = randomDouble();
+    ufo05 = randomDouble();
+    ufo075 = randomDouble();
+    ufo1 = randomDouble();
   }
 
   // オブジェクト位置リセット用の乱数を生成
   double randomDouble() {
-    return (Random().nextDouble() + 1) * 3;
+    return (Random().nextDouble() + 1) * 1.7;
   }
 
   void switchDisplay() {
@@ -80,63 +89,63 @@ class MainPageModel extends ChangeNotifier {
 
         // ヘリ -----------------------------------------------
         // 画面外に出たら
-        if (ufo_1 < -3) {
+        if (ufo_1 < -1.2) {
           ufo_1 = randomDouble();
         } else {
           ufo_1 -= 0.03;
         }
         notifyListeners();
         // 画面外に出たら
-        if (ufo_075 < -3) {
+        if (ufo_075 < -1.2) {
           ufo_075 = randomDouble();
         } else {
           ufo_075 -= 0.03;
         }
         notifyListeners();
         // 画面外に出たら
-        if (ufo_05 < -3) {
+        if (ufo_05 < -1.2) {
           ufo_05 = randomDouble();
         } else {
           ufo_05 -= 0.03;
         }
         notifyListeners();
         // 画面外に出たら
-        if (ufo_025 < -3) {
+        if (ufo_025 < -1.2) {
           ufo_025 = randomDouble();
         } else {
           ufo_025 -= 0.03;
         }
         notifyListeners();
         // 画面外に出たら
-        if (ufo0 < -3) {
+        if (ufo0 < -1.2) {
           ufo0 = randomDouble();
         } else {
           ufo0 -= 0.03;
         }
         notifyListeners();
         // 画面外に出たら
-        if (ufo025 < -3) {
+        if (ufo025 < -1.2) {
           ufo025 = randomDouble();
         } else {
           ufo025 -= 0.03;
         }
         notifyListeners();
         // 画面外に出たら
-        if (ufo05 < -3) {
+        if (ufo05 < -1.2) {
           ufo05 = randomDouble();
         } else {
           ufo05 -= 0.03;
         }
         notifyListeners();
         // 画面外に出たら
-        if (ufo075 < -3) {
+        if (ufo075 < -1.2) {
           ufo075 = randomDouble();
         } else {
           ufo075 -= 0.03;
         }
         notifyListeners();
         // 画面外に出たら
-        if (ufo1 < -3) {
+        if (ufo1 < -1.2) {
           ufo1 = randomDouble();
         } else {
           ufo1 -= 0.03;
@@ -242,7 +251,7 @@ class MainPageModel extends ChangeNotifier {
     black = 0;
 
     count = 0;
-    // ヘリ
+    // UFO
     ufo_1 = randomDouble();
     ufo_075 = randomDouble();
     ufo_05 = randomDouble();
