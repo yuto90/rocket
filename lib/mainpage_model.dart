@@ -159,21 +159,21 @@ class MainPageModel extends ChangeNotifier {
         notifyListeners();
 
         //雲  --------------------------------------------------
-        if (back > 1.15) {
+        if (back > 1.2 && count <= 30000) {
           back = -1.2;
         } else {
           back += 0.01;
         }
         notifyListeners();
 
-        if (back2 > 1.5) {
+        if (back2 > 1.5 && count <= 30000) {
           back2 = -1.2;
         } else {
           back2 += 0.01;
         }
         notifyListeners();
 
-        if (back3 > 1.5) {
+        if (back3 > 1.8 && count <= 30000) {
           back3 = -1.2;
         } else {
           back3 += 0.01;
