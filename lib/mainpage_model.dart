@@ -85,9 +85,20 @@ class MainPageModel extends ChangeNotifier {
         notifyListeners();
 
         count += 30;
-        // 1分経過したら背景を黒にする
-        if (black < 1500 && count >= 60000) {
+        // 30秒経過したら背景を黒にする
+        if (black < 1500 && count >= 30000) {
           black += 3;
+        }
+
+        // 1分経過したら背景を黒にする
+        if (count >= 60000) {
+          planet += 0.01;
+        }
+
+        // ! 惑星に近づいたらクリア
+        if ((planet - rocketYaxis) >= -0.1) {
+          timer.cancel();
+          display = 'clear';
         }
 
         // ヘリ -----------------------------------------------
@@ -98,56 +109,48 @@ class MainPageModel extends ChangeNotifier {
           ufo_1 -= 0.03;
         }
         notifyListeners();
-        // 画面外に出たら
         if (ufo_075 < -1.2) {
           ufo_075 = randomDouble();
         } else {
           ufo_075 -= 0.03;
         }
         notifyListeners();
-        // 画面外に出たら
         if (ufo_05 < -1.2) {
           ufo_05 = randomDouble();
         } else {
           ufo_05 -= 0.03;
         }
         notifyListeners();
-        // 画面外に出たら
         if (ufo_025 < -1.2) {
           ufo_025 = randomDouble();
         } else {
           ufo_025 -= 0.03;
         }
         notifyListeners();
-        // 画面外に出たら
         if (ufo0 < -1.2) {
           ufo0 = randomDouble();
         } else {
           ufo0 -= 0.03;
         }
         notifyListeners();
-        // 画面外に出たら
         if (ufo025 < -1.2) {
           ufo025 = randomDouble();
         } else {
           ufo025 -= 0.03;
         }
         notifyListeners();
-        // 画面外に出たら
         if (ufo05 < -1.2) {
           ufo05 = randomDouble();
         } else {
           ufo05 -= 0.03;
         }
         notifyListeners();
-        // 画面外に出たら
         if (ufo075 < -1.2) {
           ufo075 = randomDouble();
         } else {
           ufo075 -= 0.03;
         }
         notifyListeners();
-        // 画面外に出たら
         if (ufo1 < -1.2) {
           ufo1 = randomDouble();
         } else {
@@ -176,11 +179,6 @@ class MainPageModel extends ChangeNotifier {
           back3 += 0.01;
         }
         notifyListeners();
-
-        // 惑星 -----------------------------------------------
-        if (count >= 120000) {
-          planet += 0.01;
-        }
 
         // 発射台 --------------------------------------------------
         if (ground > 0) {
@@ -269,8 +267,6 @@ class MainPageModel extends ChangeNotifier {
     ufo05 = randomDouble();
     ufo075 = randomDouble();
     ufo1 = randomDouble();
-    //back = randomDouble();
-    //back2 = randomDouble();
 
     back = -1;
     back2 = -0.8;
