@@ -11,7 +11,7 @@ class MainPageModel extends ChangeNotifier {
   double initialHeight = 0;
   bool gameHasStarted = false;
 
-  // ヘリ
+  // 障害物
   double ufo_1 = 0;
   double ufo_075 = 0;
   double ufo_05 = 0;

@@ -63,6 +63,12 @@ class MainPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  // * 惑星 -----------------------------------------------------------
+                  AnimatedContainer(
+                    alignment: Alignment(0, model.planet),
+                    duration: Duration(microseconds: 0),
+                    child: Planet(),
+                  ),
                   // * ロケット ---------------------------------------------------------
                   AnimatedContainer(
                     // ロケットの初期位置
@@ -70,7 +76,7 @@ class MainPage extends StatelessWidget {
                     duration: Duration(milliseconds: 0),
                     child: MyRocket(),
                   ),
-                  // * ヘリ -----------------------------------------------------------
+                  // * 障害物 -----------------------------------------------------------
                   AnimatedContainer(
                     alignment: Alignment(model.ufo_1, -1),
                     duration: Duration(microseconds: 0),
@@ -131,12 +137,6 @@ class MainPage extends StatelessWidget {
                     alignment: Alignment(1, model.back),
                     duration: Duration(microseconds: 0),
                     child: Cloud(),
-                  ),
-                  // * 惑星 -----------------------------------------------------------
-                  AnimatedContainer(
-                    alignment: Alignment(0, model.planet),
-                    duration: Duration(microseconds: 0),
-                    child: Planet(),
                   ),
 
                   // * タイトル画面
