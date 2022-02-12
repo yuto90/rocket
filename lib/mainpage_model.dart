@@ -267,6 +267,22 @@ class MainPageModel extends ChangeNotifier {
           timer.cancel();
           display = 'game_over';
         }
+
+        if (((star - rocketYaxis) >= -0.1 && (star - rocketYaxis) <= 0.1) &&
+            (star <= 0.15 && star >= -0.15)) {
+          timer.cancel();
+          display = 'game_over';
+        }
+        if (((star2 - rocketYaxis) >= -0.1 && (star2 - rocketYaxis) <= 0.1) &&
+            (star2 <= 0.15 && star2 >= -0.15)) {
+          timer.cancel();
+          display = 'game_over';
+        }
+        if (((star3 - rocketYaxis) >= -0.1 && (star3 - rocketYaxis) <= 0.1) &&
+            (star3 <= 0.15 && star3 >= -0.15)) {
+          timer.cancel();
+          display = 'game_over';
+        }
       },
     );
   }
