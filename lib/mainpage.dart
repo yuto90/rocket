@@ -39,9 +39,8 @@ class MainPage extends StatelessWidget {
                     color: Colors.blueGrey[800],
                   ),
                   // * 地面 ----------------------------------------------------------
-                  AnimatedContainer(
+                  Container(
                     alignment: Alignment(0, model.ground),
-                    duration: Duration(milliseconds: 0),
                     child: Container(
                       height: 100,
                       width: double.infinity,
@@ -57,94 +56,77 @@ class MainPage extends StatelessWidget {
                     ),
                   ),
                   // * ゴール -----------------------------------------------------------
-                  AnimatedContainer(
+                  Container(
                     alignment: Alignment(0, model.goal),
-                    duration: Duration(microseconds: 0),
                     child: Goal(heightSize: 20, widthSize: 20),
                   ),
                   // * ロケット ---------------------------------------------------------
-                  AnimatedContainer(
+                  Container(
                     // ロケットの初期位置
                     alignment: Alignment(0, model.rocketYaxis),
-                    duration: Duration(milliseconds: 0),
                     child: MyRocket(),
                   ),
                   // * 障害物 -----------------------------------------------------------
-                  AnimatedContainer(
+                  Container(
                     alignment: Alignment(model.ufo_1, -1),
-                    duration: Duration(microseconds: 0),
                     child: Ufo(),
                   ),
-                  AnimatedContainer(
+                  Container(
                     alignment: Alignment(model.ufo_075, -0.75),
-                    duration: Duration(microseconds: 0),
                     child: Ufo(),
                   ),
-                  AnimatedContainer(
+                  Container(
                     alignment: Alignment(model.ufo_05, -0.5),
-                    duration: Duration(microseconds: 0),
                     child: Ufo(),
                   ),
-                  AnimatedContainer(
+                  Container(
                     alignment: Alignment(model.ufo_025, -0.25),
-                    duration: Duration(microseconds: 0),
                     child: Ufo(),
                   ),
-                  AnimatedContainer(
+                  Container(
                     alignment: Alignment(model.ufo0, 0),
-                    duration: Duration(microseconds: 0),
                     child: Ufo(),
                   ),
-                  AnimatedContainer(
+                  Container(
                     alignment: Alignment(model.ufo025, 0.25),
-                    duration: Duration(microseconds: 0),
                     child: Ufo(),
                   ),
-                  AnimatedContainer(
+                  Container(
                     alignment: Alignment(model.ufo05, 0.5),
-                    duration: Duration(microseconds: 0),
                     child: Ufo(),
                   ),
-                  AnimatedContainer(
+                  Container(
                     alignment: Alignment(model.ufo075, 0.75),
-                    duration: Duration(microseconds: 0),
                     child: Ufo(),
                   ),
-                  AnimatedContainer(
+                  Container(
                     alignment: Alignment(model.ufo1, 1),
-                    duration: Duration(microseconds: 0),
                     child: Ufo(),
                   ),
                   // * 雲背景 -----------------------------------------------------------
-                  AnimatedContainer(
+                  Container(
                     alignment: Alignment(1, model.back3),
-                    duration: Duration(microseconds: 0),
                     child: Cloud(),
                   ),
-                  AnimatedContainer(
+                  Container(
                     alignment: Alignment(-1, model.back2),
-                    duration: Duration(microseconds: 0),
                     child: Cloud(),
                   ),
-                  AnimatedContainer(
+                  Container(
                     alignment: Alignment(1, model.back),
-                    duration: Duration(microseconds: 0),
                     child: Cloud(),
                   ),
                   // * 星 -----------------------------------------------------------
-                  AnimatedContainer(
+                  Container(
                     alignment: Alignment((model.star3 * -1), model.star3),
-                    duration: Duration(microseconds: 0),
                     child: Star(),
                   ),
-                  AnimatedContainer(
+                  Container(
                     alignment: Alignment((model.star2 * -1), model.star2),
-                    duration: Duration(microseconds: 0),
                     child: Star(),
                   ),
-                  AnimatedContainer(
+                  Container(
                     alignment: Alignment((model.star * -1), model.star),
-                    duration: Duration(microseconds: 0),
                     child: Star(),
                   ),
 
