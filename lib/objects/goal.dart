@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import '../size_config.dart';
 
 class Goal extends StatelessWidget {
+  final double heightSize;
+  final double widthSize;
+  Goal({this.heightSize, this.widthSize});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -9,8 +13,8 @@ class Goal extends StatelessWidget {
       child: Image(
         image: AssetImage('lib/images/goal.png'),
         fit: BoxFit.cover,
-        height: SizeConfig.blockSizeVertical * 20,
-        width: SizeConfig.blockSizeVertical * 20,
+        height: SizeConfig.blockSizeVertical * heightSize,
+        width: SizeConfig.blockSizeVertical * widthSize,
       ),
     );
   }
