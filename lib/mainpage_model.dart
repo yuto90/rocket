@@ -4,6 +4,8 @@ import 'dart:math';
 
 class MainPageModel extends ChangeNotifier {
   String display = 'top';
+  // 難易度
+  double difficulty;
 
   double rocketYaxis = 0;
   double time = 0;
@@ -12,15 +14,15 @@ class MainPageModel extends ChangeNotifier {
   bool gameHasStarted = false;
 
   // 障害物
-  double ufo_1 = 0;
-  double ufo_075 = 0;
-  double ufo_05 = 0;
-  double ufo_025 = 0;
-  double ufo0 = 0;
-  double ufo025 = 0;
-  double ufo05 = 0;
-  double ufo075 = 0;
-  double ufo1 = 0;
+  double ufo_1 = 2;
+  double ufo_075 = 2;
+  double ufo_05 = 2;
+  double ufo_025 = 2;
+  double ufo0 = 2;
+  double ufo025 = 2;
+  double ufo05 = 2;
+  double ufo075 = 2;
+  double ufo1 = 2;
 
   // 背景の雲
   double back = -1;
@@ -51,20 +53,35 @@ class MainPageModel extends ChangeNotifier {
 
   void initValue() {
     print('init');
-    ufo_1 = randomDouble(2);
-    ufo_075 = randomDouble(2);
-    ufo_05 = randomDouble(2);
-    ufo_025 = randomDouble(2);
-    ufo0 = randomDouble(2);
-    ufo025 = randomDouble(2);
-    ufo05 = randomDouble(2);
-    ufo075 = randomDouble(2);
-    ufo1 = randomDouble(2);
   }
 
   // オブジェクト位置リセット用の乱数を生成
   double randomDouble(double coefficient) {
     return (Random().nextDouble() + 1) * coefficient;
+  }
+
+  // 難易度設定
+  void switchDiffculty(String diff) {
+    if (diff == 'hard') {
+      difficulty = 1.5;
+    } else if (diff == 'normal') {
+      difficulty = 3;
+    } else {
+      // easy
+      difficulty = 5;
+    }
+
+    // 難易度ごとに乱数の係数を調整
+    ufo_1 = randomDouble(difficulty);
+    ufo_075 = randomDouble(difficulty);
+    ufo_05 = randomDouble(difficulty);
+    ufo_025 = randomDouble(difficulty);
+    ufo0 = randomDouble(difficulty);
+    ufo025 = randomDouble(difficulty);
+    ufo05 = randomDouble(difficulty);
+    ufo075 = randomDouble(difficulty);
+    ufo1 = randomDouble(difficulty);
+    notifyListeners();
   }
 
   void switchDisplay() {
@@ -108,55 +125,55 @@ class MainPageModel extends ChangeNotifier {
         // 障害物 -----------------------------------------------
         // 画面外に出たら
         if (ufo_1 < -1.2) {
-          ufo_1 = randomDouble(2);
+          ufo_1 = randomDouble(difficulty);
         } else {
           ufo_1 -= 0.03;
         }
         notifyListeners();
         if (ufo_075 < -1.2) {
-          ufo_075 = randomDouble(2);
+          ufo_075 = randomDouble(difficulty);
         } else {
           ufo_075 -= 0.03;
         }
         notifyListeners();
         if (ufo_05 < -1.2) {
-          ufo_05 = randomDouble(2);
+          ufo_05 = randomDouble(difficulty);
         } else {
           ufo_05 -= 0.03;
         }
         notifyListeners();
         if (ufo_025 < -1.2) {
-          ufo_025 = randomDouble(2);
+          ufo_025 = randomDouble(difficulty);
         } else {
           ufo_025 -= 0.03;
         }
         notifyListeners();
         if (ufo0 < -1.2) {
-          ufo0 = randomDouble(2);
+          ufo0 = randomDouble(difficulty);
         } else {
           ufo0 -= 0.03;
         }
         notifyListeners();
         if (ufo025 < -1.2) {
-          ufo025 = randomDouble(2);
+          ufo025 = randomDouble(difficulty);
         } else {
           ufo025 -= 0.03;
         }
         notifyListeners();
         if (ufo05 < -1.2) {
-          ufo05 = randomDouble(2);
+          ufo05 = randomDouble(difficulty);
         } else {
           ufo05 -= 0.03;
         }
         notifyListeners();
         if (ufo075 < -1.2) {
-          ufo075 = randomDouble(2);
+          ufo075 = randomDouble(difficulty);
         } else {
           ufo075 -= 0.03;
         }
         notifyListeners();
         if (ufo1 < -1.2) {
-          ufo1 = randomDouble(2);
+          ufo1 = randomDouble(difficulty);
         } else {
           ufo1 -= 0.03;
         }
@@ -183,6 +200,7 @@ class MainPageModel extends ChangeNotifier {
           back3 += 0.01;
         }
         notifyListeners();
+
         // 星 -------------------------------------------------------
         if (star > 1.2 && count >= 30000) {
           star = -1.2;
@@ -205,7 +223,7 @@ class MainPageModel extends ChangeNotifier {
         }
         notifyListeners();
 
-        // 発射台 --------------------------------------------------
+        // 地面 --------------------------------------------------
         if (ground > 0) {
           ground -= 3;
           notifyListeners();
@@ -298,15 +316,15 @@ class MainPageModel extends ChangeNotifier {
 
     count = 0;
     // UFO
-    ufo_1 = randomDouble(2);
-    ufo_075 = randomDouble(2);
-    ufo_05 = randomDouble(2);
-    ufo_025 = randomDouble(2);
-    ufo0 = randomDouble(2);
-    ufo025 = randomDouble(2);
-    ufo05 = randomDouble(2);
-    ufo075 = randomDouble(2);
-    ufo1 = randomDouble(2);
+    ufo_1 = randomDouble(difficulty);
+    ufo_075 = randomDouble(difficulty);
+    ufo_05 = randomDouble(difficulty);
+    ufo_025 = randomDouble(difficulty);
+    ufo0 = randomDouble(difficulty);
+    ufo025 = randomDouble(difficulty);
+    ufo05 = randomDouble(difficulty);
+    ufo075 = randomDouble(difficulty);
+    ufo1 = randomDouble(difficulty);
 
     back = -1;
     back2 = -0.8;

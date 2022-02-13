@@ -160,10 +160,33 @@ class MainPage extends StatelessWidget {
                               ),
                               OutlinedButton(
                                 onPressed: () {
+                                  model.switchDiffculty('hard');
                                   model.switchDisplay();
                                 },
                                 child: Text(
-                                  'S T A R T',
+                                  'H A R D',
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.white),
+                                ),
+                              ),
+                              OutlinedButton(
+                                onPressed: () {
+                                  model.switchDiffculty('normal');
+                                  model.switchDisplay();
+                                },
+                                child: Text(
+                                  'N O R M A L',
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.white),
+                                ),
+                              ),
+                              OutlinedButton(
+                                onPressed: () {
+                                  model.switchDiffculty('easy');
+                                  model.switchDisplay();
+                                },
+                                child: Text(
+                                  'E A S Y',
                                   style: TextStyle(
                                       fontSize: 20, color: Colors.white),
                                 ),
