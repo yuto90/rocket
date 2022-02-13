@@ -129,55 +129,46 @@ class MainPageModel extends ChangeNotifier {
         } else {
           ufo_1 -= 0.03;
         }
-        notifyListeners();
         if (ufo_075 < -1.2) {
           ufo_075 = randomDouble(difficulty);
         } else {
           ufo_075 -= 0.03;
         }
-        notifyListeners();
         if (ufo_05 < -1.2) {
           ufo_05 = randomDouble(difficulty);
         } else {
           ufo_05 -= 0.03;
         }
-        notifyListeners();
         if (ufo_025 < -1.2) {
           ufo_025 = randomDouble(difficulty);
         } else {
           ufo_025 -= 0.03;
         }
-        notifyListeners();
         if (ufo0 < -1.2) {
           ufo0 = randomDouble(difficulty);
         } else {
           ufo0 -= 0.03;
         }
-        notifyListeners();
         if (ufo025 < -1.2) {
           ufo025 = randomDouble(difficulty);
         } else {
           ufo025 -= 0.03;
         }
-        notifyListeners();
         if (ufo05 < -1.2) {
           ufo05 = randomDouble(difficulty);
         } else {
           ufo05 -= 0.03;
         }
-        notifyListeners();
         if (ufo075 < -1.2) {
           ufo075 = randomDouble(difficulty);
         } else {
           ufo075 -= 0.03;
         }
-        notifyListeners();
         if (ufo1 < -1.2) {
           ufo1 = randomDouble(difficulty);
         } else {
           ufo1 -= 0.03;
         }
-        notifyListeners();
 
         //雲  --------------------------------------------------
         if (back > 1.2 && count <= 30000) {
@@ -185,21 +176,18 @@ class MainPageModel extends ChangeNotifier {
         } else {
           back += 0.01;
         }
-        notifyListeners();
 
         if (back2 > 1.5 && count <= 30000) {
           back2 = -1.2;
         } else {
           back2 += 0.01;
         }
-        notifyListeners();
 
         if (back3 > 1.8 && count <= 30000) {
           back3 = -1.2;
         } else {
           back3 += 0.01;
         }
-        notifyListeners();
 
         // 星 -------------------------------------------------------
         if (star > 1.2 && count >= 30000) {
@@ -207,21 +195,18 @@ class MainPageModel extends ChangeNotifier {
         } else if (count >= 30000) {
           star += 0.01;
         }
-        notifyListeners();
 
         if (star2 > 1.5 && count >= 30000) {
           star2 = -1.2;
         } else if (count >= 30000) {
           star2 += 0.01;
         }
-        notifyListeners();
 
         if (star3 > 1.8 && count >= 30000) {
           star3 = -1.2;
         } else if (count >= 30000) {
           star3 += 0.01;
         }
-        notifyListeners();
 
         // 地面 --------------------------------------------------
         if (ground > 0) {
@@ -301,6 +286,7 @@ class MainPageModel extends ChangeNotifier {
           timer.cancel();
           display = 'game_over';
         }
+        notifyListeners();
       },
     );
   }
