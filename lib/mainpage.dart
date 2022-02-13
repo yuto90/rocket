@@ -12,7 +12,7 @@ import 'mode/ready.dart';
 import 'mode/top.dart';
 import 'objects/building2.dart';
 import 'objects/goal.dart';
-import 'objects/boy.dart';
+import 'objects/planet.dart';
 import 'objects/star.dart';
 import 'objects/ufo.dart';
 import 'objects/rocket.dart';
@@ -134,7 +134,7 @@ class MainPage extends StatelessWidget {
                   ),
                   // * 雲背景 -----------------------------------------------------------
                   Align(
-                    alignment: Alignment(1, model.back3),
+                    alignment: Alignment(0.6, model.back3),
                     child: Cloud(),
                   ),
                   Align(
@@ -157,6 +157,19 @@ class MainPage extends StatelessWidget {
                   Align(
                     alignment: Alignment((model.star * -1), model.star),
                     child: Star(),
+                  ),
+                  // * 雲背景 -----------------------------------------------------------
+                  Align(
+                    alignment: Alignment(0.6, model.planet3),
+                    child: Planet(),
+                  ),
+                  Align(
+                    alignment: Alignment(-1, model.planet2),
+                    child: Planet(),
+                  ),
+                  Align(
+                    alignment: Alignment(1, model.planet),
+                    child: Planet(),
                   ),
 
                   // * ルール説明画面
