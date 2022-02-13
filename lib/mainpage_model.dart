@@ -36,7 +36,6 @@ class MainPageModel extends ChangeNotifier {
 
   // 発射台
   double ground = 1.1;
-  double boy = 0.5;
 
   // 宇宙の背景色
   double space = 0;
@@ -212,10 +211,6 @@ class MainPageModel extends ChangeNotifier {
         // 地面 --------------------------------------------------
         if (ground > 0) {
           ground += 0.01;
-          notifyListeners();
-        }
-        if (boy > 0) {
-          boy -= 0.01;
           notifyListeners();
         }
 
