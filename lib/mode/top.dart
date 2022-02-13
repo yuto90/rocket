@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../size_config.dart';
+
 class Top extends StatelessWidget {
   final model;
   Top({this.model});
@@ -15,7 +17,10 @@ class Top extends StatelessWidget {
               children: [
                 Text(
                   'Rocket',
-                  style: TextStyle(fontSize: 20, color: Colors.white),
+                  style: TextStyle(
+                    fontSize: SizeConfig.blockSizeVertical * 2,
+                    color: Colors.white,
+                  ),
                 ),
                 SizedBox(
                   height: 180,
@@ -27,7 +32,10 @@ class Top extends StatelessWidget {
                   },
                   child: Text(
                     'H A R D',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    style: TextStyle(
+                      fontSize: SizeConfig.blockSizeVertical * 2,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 OutlinedButton(
@@ -37,7 +45,10 @@ class Top extends StatelessWidget {
                   },
                   child: Text(
                     'N O R M A L',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    style: TextStyle(
+                      fontSize: SizeConfig.blockSizeVertical * 2,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 OutlinedButton(
@@ -47,7 +58,10 @@ class Top extends StatelessWidget {
                   },
                   child: Text(
                     'E A S Y',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    style: TextStyle(
+                      fontSize: SizeConfig.blockSizeVertical * 2,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 OutlinedButton(
@@ -56,7 +70,10 @@ class Top extends StatelessWidget {
                   },
                   child: Text(
                     'ルール',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    style: TextStyle(
+                      fontSize: SizeConfig.blockSizeVertical * 2,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ],

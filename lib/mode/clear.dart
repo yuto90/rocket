@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../size_config.dart';
 
 class Clear extends StatelessWidget {
   final model;
@@ -15,7 +16,10 @@ class Clear extends StatelessWidget {
               children: [
                 Text(
                   'C L E A R !!!',
-                  style: TextStyle(fontSize: 20, color: Colors.white),
+                  style: TextStyle(
+                    fontSize: SizeConfig.blockSizeVertical * 2,
+                    color: Colors.white,
+                  ),
                 ),
                 SizedBox(
                   height: 180,
@@ -29,7 +33,9 @@ class Clear extends StatelessWidget {
                   },
                   child: Text(
                     'E X I T',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    style: TextStyle(
+                        fontSize: SizeConfig.blockSizeVertical * 2,
+                        color: Colors.white),
                   ),
                 ),
               ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../size_config.dart';
 
 class GameOver extends StatelessWidget {
   final model;
@@ -15,7 +16,10 @@ class GameOver extends StatelessWidget {
               children: [
                 Text(
                   'G A M E  O V E R',
-                  style: TextStyle(fontSize: 20, color: Colors.white),
+                  style: TextStyle(
+                    fontSize: SizeConfig.blockSizeVertical * 2,
+                    color: Colors.white,
+                  ),
                 ),
                 SizedBox(
                   height: 180,
@@ -29,7 +33,9 @@ class GameOver extends StatelessWidget {
                   },
                   child: Text(
                     'C O N T I N U E',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    style: TextStyle(
+                        fontSize: SizeConfig.blockSizeVertical * 2,
+                        color: Colors.white),
                   ),
                 ),
                 OutlinedButton(
@@ -41,7 +47,9 @@ class GameOver extends StatelessWidget {
                   },
                   child: Text(
                     'E X I T',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    style: TextStyle(
+                        fontSize: SizeConfig.blockSizeVertical * 2,
+                        color: Colors.white),
                   ),
                 ),
               ],

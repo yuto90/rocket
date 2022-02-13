@@ -15,13 +15,12 @@ class How extends StatelessWidget {
         ? Stack(
             children: [
               // ロケットの注釈
-              const Align(
-                alignment: Alignment(0, 0.15),
+              Align(
+                alignment: Alignment(0, 0.16),
                 child: Text(
                   '↑',
                   style: TextStyle(
-                    fontSize: 75,
-                    fontWeight: FontWeight.bold,
+                    fontSize: SizeConfig.blockSizeVertical * 6,
                     color: Colors.black,
                   ),
                 ),
@@ -39,7 +38,7 @@ class How extends StatelessWidget {
                     child: Text(
                       '画面をタップすると上に移動するよ',
                       style: TextStyle(
-                        fontSize: 13,
+                        fontSize: SizeConfig.blockSizeVertical * 1.5,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
@@ -63,7 +62,7 @@ class How extends StatelessWidget {
                       Text(
                         '-*-*-*-*- クリア条件 -*-*-*-*-',
                         style: TextStyle(
-                          fontSize: 13,
+                          fontSize: SizeConfig.blockSizeVertical * 1.5,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
@@ -71,29 +70,32 @@ class How extends StatelessWidget {
                       Text(
                         'ロケットが惑星まで到達すること',
                         style: TextStyle(
-                          fontSize: 13,
+                          fontSize: SizeConfig.blockSizeVertical * 1.5,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding:
+                            EdgeInsets.all(SizeConfig.blockSizeVertical * 0.8),
                         child: Goal(heightSize: 10, widthSize: 10),
                       ),
                       Text(
                         '※特定の障害物に当たるとゲームオーバー',
                         style: TextStyle(
-                          fontSize: 13,
+                          fontSize: SizeConfig.blockSizeVertical * 1.5,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding:
+                            EdgeInsets.all(SizeConfig.blockSizeVertical * 0.8),
                         child: Ufo(),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding:
+                            EdgeInsets.all(SizeConfig.blockSizeVertical * 0.8),
                         child: Star(),
                       ),
                     ],
@@ -103,14 +105,17 @@ class How extends StatelessWidget {
 
               // 戻るボタン
               Align(
-                alignment: Alignment(0, 0.7),
+                alignment: Alignment(0, 0.5),
                 child: OutlinedButton(
                   onPressed: () {
                     model.switchDisplay('top');
                   },
                   child: Text(
                     'B A C K',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    style: TextStyle(
+                      fontSize: SizeConfig.blockSizeVertical * 2,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),

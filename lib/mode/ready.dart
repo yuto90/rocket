@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../size_config.dart';
 
 class Ready extends StatelessWidget {
   final model;
@@ -14,7 +15,10 @@ class Ready extends StatelessWidget {
                 ? Text('')
                 : Text(
                     'T A P  T O  P L A Y',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    style: TextStyle(
+                      fontSize: SizeConfig.blockSizeVertical * 2,
+                      color: Colors.white,
+                    ),
                   ),
           )
         : Text('');
