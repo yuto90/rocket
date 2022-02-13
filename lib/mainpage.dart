@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rocket/mode/game_over.dart';
+import 'package:rocket/objects/building.dart';
+import 'package:rocket/objects/office.dart';
+import 'package:rocket/objects/tokyo_tower.dart';
+import 'package:rocket/objects/wood.dart';
 import 'mode/clear.dart';
 import 'mode/how.dart';
 import 'mainpage_model.dart';
 import 'mode/ready.dart';
 import 'mode/top.dart';
+import 'objects/building2.dart';
 import 'objects/goal.dart';
 import 'objects/boy.dart';
 import 'objects/star.dart';
@@ -44,20 +49,40 @@ class MainPage extends StatelessWidget {
                   ),
                   // * 地面 ----------------------------------------------------------
                   Align(
-                    alignment: Alignment(0, model.ground),
-                    child: Container(
-                      height: 100,
-                      width: double.infinity,
-                      color: Colors.brown,
-                      child: Stack(
-                        children: [
-                          Align(
-                            alignment: Alignment(model.boy, -1),
-                            child: Boy(),
-                          ),
-                        ],
-                      ),
-                    ),
+                    alignment: Alignment(0.8, model.ground),
+                    child: Building2(),
+                  ),
+                  Align(
+                    alignment: Alignment(-1.3, model.ground),
+                    child: Building2(),
+                  ),
+                  Align(
+                    alignment: Alignment(-0.1, model.ground),
+                    child: Office(),
+                  ),
+                  Align(
+                    alignment: Alignment(1.1, model.ground),
+                    child: Wood(),
+                  ),
+                  Align(
+                    alignment: Alignment(1.1, model.ground),
+                    child: TokyoTower(),
+                  ),
+                  Align(
+                    alignment: Alignment(-0.9, model.ground),
+                    child: Office(),
+                  ),
+                  Align(
+                    alignment: Alignment(0.2, model.ground),
+                    child: Building(),
+                  ),
+                  Align(
+                    alignment: Alignment(-0.8, model.ground),
+                    child: Building(),
+                  ),
+                  Align(
+                    alignment: Alignment(-0.4, model.ground),
+                    child: Building2(),
                   ),
                   // * ゴール -----------------------------------------------------------
                   Align(

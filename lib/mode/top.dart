@@ -14,6 +14,9 @@ class Top extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                SizedBox(
+                  height: SizeConfig.blockSizeVertical * 18,
+                ),
                 Text(
                   'Rocket',
                   style: TextStyle(
@@ -22,7 +25,7 @@ class Top extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 180,
+                  height: SizeConfig.blockSizeVertical * 20,
                 ),
                 OutlinedButton(
                   onPressed: () {
