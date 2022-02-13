@@ -59,7 +59,7 @@ class MainPage extends StatelessWidget {
                   AnimatedContainer(
                     alignment: Alignment(0, model.goal),
                     duration: Duration(microseconds: 0),
-                    child: Goal(),
+                    child: Goal(heightSize: 20, widthSize: 20),
                   ),
                   // * ロケット ---------------------------------------------------------
                   AnimatedContainer(
@@ -147,6 +147,116 @@ class MainPage extends StatelessWidget {
                     child: Star(),
                   ),
 
+                  // * ルール説明画面
+                  model.display == 'how'
+                      ? Stack(
+                          children: [
+                            // ロケットの注釈
+                            const Align(
+                              alignment: Alignment(0, 0.15),
+                              child: Text(
+                                '↑',
+                                style: TextStyle(
+                                  fontSize: 75,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment(0, 0.26),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.white),
+                                  color: Colors.black,
+                                ),
+                                height: SizeConfig.blockSizeVertical * 5,
+                                width: SizeConfig.blockSizeVertical * 26,
+                                child: Center(
+                                  child: Text(
+                                    '画面をタップすると上に移動するよ',
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+
+                            // クリア条件の注釈
+                            Align(
+                              alignment: Alignment(0, -0.7),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.white),
+                                  color: Colors.black,
+                                ),
+                                height: SizeConfig.blockSizeVertical * 30,
+                                width: SizeConfig.blockSizeVertical * 30,
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      '-*-*-*-*- クリア条件 -*-*-*-*-',
+                                      style: TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    Text(
+                                      'ロケットが惑星まで到達すること',
+                                      style: TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child:
+                                          Goal(heightSize: 10, widthSize: 10),
+                                    ),
+                                    Text(
+                                      '※特定の障害物に当たるとゲームオーバー',
+                                      style: TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Ufo(),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Star(),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+
+                            // 戻るボタン
+                            Align(
+                              alignment: Alignment(0, 0.7),
+                              child: OutlinedButton(
+                                onPressed: () {
+                                  model.switchDisplay('top');
+                                },
+                                child: Text(
+                                  'B A C K',
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      : Text(''),
+
                   // * タイトル画面
                   model.display == 'top'
                       ? Align(
@@ -165,7 +275,7 @@ class MainPage extends StatelessWidget {
                               OutlinedButton(
                                 onPressed: () {
                                   model.switchDiffculty('hard');
-                                  model.switchDisplay();
+                                  model.switchDisplay('ready');
                                 },
                                 child: Text(
                                   'H A R D',
@@ -176,7 +286,7 @@ class MainPage extends StatelessWidget {
                               OutlinedButton(
                                 onPressed: () {
                                   model.switchDiffculty('normal');
-                                  model.switchDisplay();
+                                  model.switchDisplay('ready');
                                 },
                                 child: Text(
                                   'N O R M A L',
@@ -187,10 +297,20 @@ class MainPage extends StatelessWidget {
                               OutlinedButton(
                                 onPressed: () {
                                   model.switchDiffculty('easy');
-                                  model.switchDisplay();
+                                  model.switchDisplay('ready');
                                 },
                                 child: Text(
                                   'E A S Y',
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.white),
+                                ),
+                              ),
+                              OutlinedButton(
+                                onPressed: () {
+                                  model.switchDisplay('how');
+                                },
+                                child: Text(
+                                  'ルール',
                                   style: TextStyle(
                                       fontSize: 20, color: Colors.white),
                                 ),

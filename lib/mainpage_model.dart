@@ -84,8 +84,9 @@ class MainPageModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void switchDisplay() {
-    display = 'ready';
+  // 画面を切り替え
+  void switchDisplay(String mode) {
+    display = mode;
     notifyListeners();
   }
 
