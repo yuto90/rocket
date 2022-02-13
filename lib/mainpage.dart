@@ -35,10 +35,11 @@ class MainPage extends StatelessWidget {
                     color: Colors.blueGrey[800],
                   ),
                   // * 地面 ----------------------------------------------------------
-                  Align(
-                    alignment: Alignment.bottomCenter,
+                  AnimatedContainer(
+                    alignment: Alignment(0, model.ground),
+                    duration: Duration(milliseconds: 0),
                     child: Container(
-                      height: model.ground,
+                      height: 100,
                       width: double.infinity,
                       color: Colors.brown,
                       child: Stack(
