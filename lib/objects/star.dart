@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../size_config.dart';
 
 class Star extends StatelessWidget {
   @override
@@ -8,8 +9,8 @@ class Star extends StatelessWidget {
       child: Image(
         image: AssetImage('lib/images/star.png'),
         fit: BoxFit.cover,
-        height: 40,
-        width: 40,
+        height: SizeConfig.blockSizeVertical * 4,
+        width: SizeConfig.blockSizeVertical * 4,
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../size_config.dart';
 
 class Goal extends StatelessWidget {
   @override
@@ -8,8 +9,8 @@ class Goal extends StatelessWidget {
       child: Image(
         image: AssetImage('lib/images/goal.png'),
         fit: BoxFit.cover,
-        height: 300,
-        width: 300,
+        height: SizeConfig.blockSizeVertical * 20,
+        width: SizeConfig.blockSizeVertical * 20,
       ),
     );
   }

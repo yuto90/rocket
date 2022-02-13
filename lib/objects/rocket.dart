@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../size_config.dart';
 
 class MyRocket extends StatelessWidget {
   @override
@@ -8,8 +9,8 @@ class MyRocket extends StatelessWidget {
       child: Image(
         image: AssetImage('lib/images/rocket.png'),
         fit: BoxFit.cover,
-        height: 70,
-        width: 45,
+        height: SizeConfig.blockSizeVertical * 9,
+        width: SizeConfig.blockSizeHorizontal * 9,
       ),
     );
   }

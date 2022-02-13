@@ -335,8 +335,7 @@ class MainPageModel extends ChangeNotifier {
     star3 = -2.6;
 
     goal = -3;
-    // 発射台
-    ground = 150;
+    ground = 1;
   }
 
   void reload() {

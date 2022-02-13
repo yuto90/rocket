@@ -7,10 +7,13 @@ import 'objects/star.dart';
 import 'objects/ufo.dart';
 import 'objects/rocket.dart';
 import 'objects/cloud.dart';
+import 'size_config.dart';
 
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Widgetサイズ最適化用クラスを初期化
+    SizeConfig().init(context);
     return ChangeNotifierProvider<MainPageModel>(
       create: (_) => MainPageModel(),
       child: Consumer<MainPageModel>(
