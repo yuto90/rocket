@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rocket/display_mode.dart';
+import 'package:rocket/mode/game_over.dart';
+import 'mode/clear.dart';
+import 'mode/how.dart';
 import 'mainpage_model.dart';
+import 'mode/ready.dart';
+import 'mode/top.dart';
 import 'objects/goal.dart';
 import 'objects/boy.dart';
 import 'objects/star.dart';
@@ -130,8 +134,16 @@ class MainPage extends StatelessWidget {
                     child: Star(),
                   ),
 
-                  // * 各モード画面
-                  DisplayMode(model: model),
+                  // * ルール説明画面
+                  How(model: model),
+                  // * タイトル画面
+                  Top(model: model),
+                  // * ゲーム開始画面
+                  Ready(model: model),
+                  // * クリア画面
+                  Clear(model: model),
+                  // * ゲームオーバー画面
+                  GameOver(model: model),
                 ],
               ),
             ),

@@ -4,9 +4,9 @@ import 'objects/star.dart';
 import 'objects/ufo.dart';
 import 'size_config.dart';
 
-class DisplayMode extends StatelessWidget {
+class HowDisplay extends StatelessWidget {
   final model;
-  DisplayMode({this.model});
+  HowDisplay({this.model});
 
   @override
   Widget build(BuildContext context) {

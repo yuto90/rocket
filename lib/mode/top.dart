@@ -1,0 +1,67 @@
+import 'package:flutter/material.dart';
+
+class Top extends StatelessWidget {
+  final model;
+  Top({this.model});
+
+  @override
+  Widget build(BuildContext context) {
+    // * タイトル画面
+    return model.display == 'top'
+        ? Align(
+            alignment: Alignment.center,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Rocket',
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+                SizedBox(
+                  height: 180,
+                ),
+                OutlinedButton(
+                  onPressed: () {
+                    model.switchDiffculty('hard');
+                    model.switchDisplay('ready');
+                  },
+                  child: Text(
+                    'H A R D',
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ),
+                ),
+                OutlinedButton(
+                  onPressed: () {
+                    model.switchDiffculty('normal');
+                    model.switchDisplay('ready');
+                  },
+                  child: Text(
+                    'N O R M A L',
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ),
+                ),
+                OutlinedButton(
+                  onPressed: () {
+                    model.switchDiffculty('easy');
+                    model.switchDisplay('ready');
+                  },
+                  child: Text(
+                    'E A S Y',
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ),
+                ),
+                OutlinedButton(
+                  onPressed: () {
+                    model.switchDisplay('how');
+                  },
+                  child: Text(
+                    'ルール',
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+          )
+        : Text('');
+  }
+}
