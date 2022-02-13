@@ -31,8 +31,8 @@ class MainPageModel extends ChangeNotifier {
 
   // 背景の雲
   double star = -2;
-  double star2 = -2.8;
-  double star3 = -2.6;
+  double star2 = -2.5;
+  double star3 = -3;
 
   // 発射台
   double ground = 150;
