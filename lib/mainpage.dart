@@ -43,7 +43,7 @@ class MainPage extends StatelessWidget {
                     color: Colors.blueGrey[800],
                   ),
                   // * 地面 ----------------------------------------------------------
-                  Container(
+                  Align(
                     alignment: Alignment(0, model.ground),
                     child: Container(
                       height: 100,
@@ -60,76 +60,76 @@ class MainPage extends StatelessWidget {
                     ),
                   ),
                   // * ゴール -----------------------------------------------------------
-                  Container(
+                  Align(
                     alignment: Alignment(0, model.goal),
                     child: Goal(heightSize: 20, widthSize: 20),
                   ),
                   // * ロケット ---------------------------------------------------------
-                  Container(
+                  Align(
                     // ロケットの初期位置
                     alignment: Alignment(0, model.rocketYaxis),
                     child: MyRocket(),
                   ),
                   // * 障害物 -----------------------------------------------------------
-                  Container(
+                  Align(
                     alignment: Alignment(model.ufo_1, -1),
                     child: Ufo(),
                   ),
-                  Container(
+                  Align(
                     alignment: Alignment(model.ufo_075, -0.75),
                     child: Ufo(),
                   ),
-                  Container(
+                  Align(
                     alignment: Alignment(model.ufo_05, -0.5),
                     child: Ufo(),
                   ),
-                  Container(
+                  Align(
                     alignment: Alignment(model.ufo_025, -0.25),
                     child: Ufo(),
                   ),
-                  Container(
+                  Align(
                     alignment: Alignment(model.ufo0, 0),
                     child: Ufo(),
                   ),
-                  Container(
+                  Align(
                     alignment: Alignment(model.ufo025, 0.25),
                     child: Ufo(),
                   ),
-                  Container(
+                  Align(
                     alignment: Alignment(model.ufo05, 0.5),
                     child: Ufo(),
                   ),
-                  Container(
+                  Align(
                     alignment: Alignment(model.ufo075, 0.75),
                     child: Ufo(),
                   ),
-                  Container(
+                  Align(
                     alignment: Alignment(model.ufo1, 1),
                     child: Ufo(),
                   ),
                   // * 雲背景 -----------------------------------------------------------
-                  Container(
+                  Align(
                     alignment: Alignment(1, model.back3),
                     child: Cloud(),
                   ),
-                  Container(
+                  Align(
                     alignment: Alignment(-1, model.back2),
                     child: Cloud(),
                   ),
-                  Container(
+                  Align(
                     alignment: Alignment(1, model.back),
                     child: Cloud(),
                   ),
                   // * 星 -----------------------------------------------------------
-                  Container(
+                  Align(
                     alignment: Alignment((model.star3 * -1), model.star3),
                     child: Star(),
                   ),
-                  Container(
+                  Align(
                     alignment: Alignment((model.star2 * -1), model.star2),
                     child: Star(),
                   ),
-                  Container(
+                  Align(
                     alignment: Alignment((model.star * -1), model.star),
                     child: Star(),
                   ),
