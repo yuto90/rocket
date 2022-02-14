@@ -29,10 +29,10 @@ class MainPageModel extends ChangeNotifier {
   double back2 = -0.8;
   double back3 = -0.6;
 
-  // 背景の惑星
-  double planet = -3;
-  double planet2 = -2.8;
-  double planet3 = -2.6;
+  // 背景の隕石
+  double meteorite = -3;
+  double meteorite2 = -2.8;
+  double meteorite3 = -2.6;
 
   // 背景の雲
   double star = -2;
@@ -194,23 +194,23 @@ class MainPageModel extends ChangeNotifier {
           back3 += 0.01;
         }
 
-        //惑星  --------------------------------------------------
-        if (planet > 1.2 && count >= 30000) {
-          planet = -1.2;
+        //隕石  --------------------------------------------------
+        if (meteorite > 1.2 && count >= 30000) {
+          meteorite = -1.2;
         } else if (count >= 30000) {
-          planet += 0.01;
+          meteorite += 0.01;
         }
 
-        if (planet2 > 1.5 && count >= 30000) {
-          planet2 = -1.2;
+        if (meteorite2 > 1.5 && count >= 30000) {
+          meteorite2 = -1.2;
         } else if (count >= 30000) {
-          planet2 += 0.01;
+          meteorite2 += 0.01;
         }
 
-        if (planet3 > 1.8 && count >= 30000) {
-          planet3 = -1.2;
+        if (meteorite3 > 1.8 && count >= 30000) {
+          meteorite3 = -1.2;
         } else if (count >= 30000) {
-          planet3 += 0.01;
+          meteorite3 += 0.01;
         }
 
         // 星 -------------------------------------------------------
@@ -336,9 +336,9 @@ class MainPageModel extends ChangeNotifier {
     back2 = -0.8;
     back3 = -0.6;
 
-    planet = -2;
-    planet2 = -1.8;
-    planet3 = -1.6;
+    meteorite = -2;
+    meteorite2 = -1.8;
+    meteorite3 = -1.6;
 
     star = -2;
     star2 = -2.8;
