@@ -55,7 +55,7 @@ class How extends StatelessWidget {
                     border: Border.all(color: Colors.white),
                     color: Colors.black,
                   ),
-                  height: SizeConfig.blockSizeVertical * 30,
+                  height: SizeConfig.blockSizeVertical * 33,
                   width: SizeConfig.blockSizeVertical * 30,
                   child: Column(
                     children: [
