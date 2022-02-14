@@ -9,8 +9,8 @@ class MyRocket extends StatelessWidget {
       child: Image(
         image: AssetImage('lib/images/rocket.png'),
         fit: BoxFit.cover,
-        height: SizeConfig.blockSizeVertical * 9,
-        width: SizeConfig.blockSizeHorizontal * 9,
+        height: SizeConfig.blockSizeVertical * 8,
+        width: SizeConfig.blockSizeHorizontal * 8,
       ),
     );
   }

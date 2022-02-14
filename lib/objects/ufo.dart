@@ -9,8 +9,8 @@ class Ufo extends StatelessWidget {
       child: Image(
         image: AssetImage('lib/images/ufo.png'),
         fit: BoxFit.cover,
-        height: SizeConfig.blockSizeVertical * 4,
-        width: SizeConfig.blockSizeVertical * 4,
+        height: SizeConfig.blockSizeVertical * 5,
+        width: SizeConfig.blockSizeVertical * 5,
       ),
     );
   }
