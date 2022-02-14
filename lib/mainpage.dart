@@ -49,7 +49,7 @@ class MainPage extends StatelessWidget {
                   ),
                   // * 地面 ----------------------------------------------------------
                   Align(
-                    alignment: Alignment(0.8, model.ground),
+                    alignment: Alignment(0.6, model.ground),
                     child: Building2(),
                   ),
                   Align(
@@ -61,12 +61,16 @@ class MainPage extends StatelessWidget {
                     child: Office(),
                   ),
                   Align(
-                    alignment: Alignment(1.1, model.ground),
-                    child: Wood(),
+                    alignment: Alignment(1.2, model.ground),
+                    child: Building2(),
                   ),
                   Align(
                     alignment: Alignment(1.1, model.ground),
                     child: TokyoTower(),
+                  ),
+                  Align(
+                    alignment: Alignment(1.1, model.ground),
+                    child: Wood(),
                   ),
                   Align(
                     alignment: Alignment(-0.9, model.ground),
@@ -75,6 +79,10 @@ class MainPage extends StatelessWidget {
                   Align(
                     alignment: Alignment(0.2, model.ground),
                     child: Building(),
+                  ),
+                  Align(
+                    alignment: Alignment(0, model.ground),
+                    child: Wood(),
                   ),
                   Align(
                     alignment: Alignment(-0.8, model.ground),
