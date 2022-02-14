@@ -113,7 +113,7 @@ class MainPageModel extends ChangeNotifier {
         count += 30;
         // 30秒経過したら背景を黒にする
         if (space < 1500 && count >= 30000) {
-          space += 3;
+          space += 3.7;
         }
 
         // 1分経過したら背景を黒にする
