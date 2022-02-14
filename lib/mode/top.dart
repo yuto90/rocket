@@ -20,7 +20,8 @@ class Top extends StatelessWidget {
                 Text(
                   'Unluck Rocket',
                   style: TextStyle(
-                    fontSize: SizeConfig.blockSizeVertical * 2,
+                    fontSize: SizeConfig.blockSizeVertical * 3,
+                    fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),
