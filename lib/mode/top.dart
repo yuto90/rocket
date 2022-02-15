@@ -18,7 +18,7 @@ class Top extends StatelessWidget {
                   height: SizeConfig.blockSizeVertical * 18,
                 ),
                 Text(
-                  'Unluck Rocket',
+                  'Unlucky Rocket',
                   style: TextStyle(
                     fontSize: SizeConfig.blockSizeVertical * 3,
                     fontWeight: FontWeight.bold,
